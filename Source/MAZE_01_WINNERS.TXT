@@ -1,0 +1,15 @@
+Player          - Time
+----------------------
+Antonio Araujo  - 4
+Pedro Ferreira  - 5
+Jorge Silva     - 7
+To Ferreira     - 9
+Luis Portela    - 11
+Ines Gaspar     - 14
+Afonso Abreu    - 19
+Joao Malva      - 23
+Gil Coutinho    - 31
+Fabio Sa        - 34
+Gabriel David   - 52
+Jaime Villate   - 54
+Maria Leal      - 81
