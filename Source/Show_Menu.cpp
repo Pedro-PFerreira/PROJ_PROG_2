@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include "Winners.cpp"
+#include "Select_maze.cpp"
 using namespace std;
 
 void ShowRules()
@@ -70,7 +71,9 @@ void Menu(bool &want_play)
             want_play = false;
     }
     else if (button == 2)
-        want_play = true;
+    {
+        choose_maze(want_play);
+    }
 
     else if (button == 0)
         exit(0);
