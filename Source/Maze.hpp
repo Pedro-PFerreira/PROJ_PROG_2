@@ -16,9 +16,12 @@ class Maze
     char ** getMaze();
     string getName();
     void setMaze(int number_maze);
+    void refreshMaze(char **maze);
     void setDimension(unsigned int lines, unsigned int cols);
     void setName(string name);
     vector<unsigned int> getDimensions();
+    void includePost(Post post);
+    vector<Post> getPosts();
 
     private:
     unsigned int lines;

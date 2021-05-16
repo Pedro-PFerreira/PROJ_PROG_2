@@ -76,3 +76,18 @@ char ** Maze::getMaze()
 {
     return maze_content;
 }
+
+void Maze::includePost(Post post) 
+{
+    posts.push_back(post);
+}
+
+vector<Post> Maze::getPosts()
+{
+    return posts;
+}
+
+void Maze::refreshMaze(char **maze)
+{
+    maze_content = maze;
+}
