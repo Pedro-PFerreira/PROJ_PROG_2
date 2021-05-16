@@ -59,6 +59,14 @@ void Game::createObjects()
                 player.setCord(line, col);
                 player.setStatus(current_char);
             }
+
+            else if (current_char == '*' || current_char == '+')
+            {
+                Post current_post = Post();
+                current_post.set_Status(current_char);
+                current_post.setCord(line, col);
+                maze.includePost(current_post);
+            }
         }
     }
 }

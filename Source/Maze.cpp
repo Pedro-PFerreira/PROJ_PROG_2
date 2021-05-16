@@ -81,3 +81,8 @@ void Maze::refreshMaze(char **maze)
 {
     maze_content = maze;
 }
+
+void Maze::includePost(Post post)
+{
+    posts.push_back(post);
+}

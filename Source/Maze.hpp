@@ -19,6 +19,7 @@ class Maze
     void refreshMaze(char **maze);
     void setDimension(unsigned int lines, unsigned int cols);
     void setName(string name);
+    void includePost(Post post);
     vector<unsigned int> getDimensions();
     vector<Post> getPosts();
 
