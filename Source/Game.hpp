@@ -13,6 +13,7 @@ class Game
     public:
     Game();
     void createMaze(int number_maze);
+    void printMaze();
     void createObjects();
 
     private:

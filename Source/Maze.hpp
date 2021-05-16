@@ -3,7 +3,7 @@
 #ifndef MAZE_DEFINED
 #define MAZE_DEFINED
 
-
+#include "Post.hpp"
 #include <sstream>
 #include <fstream>
 #include <vector>
@@ -25,6 +25,7 @@ class Maze
     unsigned int cols;
     string name;
     char **maze_content;
+    vector<Post> posts;
 };
 
 #endif

@@ -12,11 +12,10 @@ void Game::createMaze(int number_maze)
     maze.setMaze(number_maze);
 }   
 
-void Game::createObjects()
-{   
+void Game::printMaze()
+{
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
-    cout << "lines " << lines << " and cols " << cols << endl;
 
     for (int line = 0 ; line < lines ; line++ )
     {
@@ -26,4 +25,9 @@ void Game::createObjects()
         }
         cout << endl;
     }
+}
+
+void Game::createObjects()
+{   
+    printMaze();
 }

@@ -11,6 +11,7 @@ Maze::Maze()
 {
     lines = lines;
     cols = cols;
+    posts = posts;
 }
 
 void Maze::setDimension(unsigned int lines, unsigned int cols)
