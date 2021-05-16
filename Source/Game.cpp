@@ -70,6 +70,17 @@ void Game::createObjects()
     }
 }
 
+bool Game::end()
+{
+    bool answer = true;
+    for (auto robot : robots)
+    {
+        answer = answer && robot.getStatus() == 'r';
+    }
+    answer = answer && player.getStatus() == 'h';
+    return answer;
+}
+
 void Game::test()
 {
     cout << endl << "Printando a maze:" << endl;

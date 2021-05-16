@@ -14,6 +14,7 @@ class Game
     void createMaze(int number_maze);
     void printMaze();
     void createObjects();
+    bool end();
     void test(); // Função que só serve para ver se tudo é metido a objectos correctamente, apagar quando tudo estiver ok!
 
     // void movimento dos robots

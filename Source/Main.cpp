@@ -28,5 +28,10 @@ int main()
     // Para testar se tudo é feito em condições:
     game.test();
 
+    //while (!game.end()) 
+    //{
+    //    cout << "Do something" << endl;
+    //}
+
     return 0;
 }
