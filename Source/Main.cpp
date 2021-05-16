@@ -1,6 +1,9 @@
 
 #include <iostream>
 #include "Show_Menu.cpp"
+#include "Post.cpp"
+#include <vector>
+#include <iostream>
 using namespace std;
 
 int main()
