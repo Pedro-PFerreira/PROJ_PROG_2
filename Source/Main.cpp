@@ -25,13 +25,22 @@ int main()
     game.createMaze(number_maze);
     game.createObjects();
 
-    // Para testar se tudo é feito em condições:
-    game.test();
+    while (!game.end()) 
+    {
+        game.printMaze();
+        game.player_moves();
 
-    //while (!game.end()) 
-    //{
-    //    cout << "Do something" << endl;
-    //}
+    }
+
+    if (game.isAlive())
+    {
+        cout << "Congratulations, you won!";
+    }
+
+    else
+    {
+        cout << "You lost!";
+    }
 
     return 0;
 }

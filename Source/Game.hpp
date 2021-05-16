@@ -15,12 +15,18 @@ class Game
     void printMaze();
     void createObjects();
     bool end();
-    void test(); // Função que só serve para ver se tudo é metido a objectos correctamente, apagar quando tudo estiver ok!
+    void robot_moves();
+    void player_moves();
+    bool robots_collide();
+    int player_collide();
+    bool valid_button(char button);
+    bool isAlive();
 
     // void movimento dos robots
     // void movimento do player
     // bool colisions robot
     // bool colision robot
+    //bool isAlive()
 
     private:
     Player player;

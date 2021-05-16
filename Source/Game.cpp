@@ -3,7 +3,8 @@
 #include "Game.hpp"
 #include "Robot.cpp"
 #include "Post.hpp"
-
+#include <iostream>
+using namespace std;
 Game::Game()
 {
     maze = maze;
@@ -11,19 +12,19 @@ Game::Game()
     robots = robots;
 }
 
-void Game::createMaze(int number_maze) 
+void Game::createMaze(int number_maze)
 {
     maze.setMaze(number_maze);
-}   
+}
 
 void Game::printMaze()
 {
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
 
-    for (int line = 0 ; line < lines ; line++ )
+    for (int line = 0; line < lines; line++)
     {
-        for (int col = 0 ; col < cols ; col++ )
+        for (int col = 0; col < cols; col++)
         {
             cout << maze.getMaze()[line][col];
         }
@@ -32,19 +33,19 @@ void Game::printMaze()
 }
 
 void Game::createObjects()
-{   
+{
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
     unsigned int cont_robot = 0;
 
-    for (int line = 0 ; line < lines ; line++ )
+    for (int line = 0; line < lines; line++)
     {
-        for (int col = 0 ; col < cols ; col++ )
-        {   
+        for (int col = 0; col < cols; col++)
+        {
             char current_char = maze.getMaze()[line][col];
 
             if (current_char == 'R' || current_char == 'r')
-            {   
+            {
                 Robot robot = Robot();
                 robot.setCord(line, col);
                 robot.setStatus(current_char);
@@ -78,31 +79,138 @@ bool Game::end()
         answer = answer && robot.getStatus() == 'r';
     }
     answer = answer && player.getStatus() == 'h';
+    answer = answer || player_collide() == 3;
     return answer;
 }
 
-void Game::test()
+bool Game::valid_button(char command)
 {
-    cout << endl << "Printando a maze:" << endl;
-    printMaze();
-
-    cout << endl << "Printando as caracteristicas do Player:" << endl;
-    cout << "X = " << player.getCord()[0] << " and Y = " << player.getCord()[1] << endl;
-    cout << "Status: " << player.getStatus() << endl;
-
-    cout << endl << "Printando as caracteristicas de cada Post:" << endl;
-    vector<Post> all_posts = maze.getPosts();
-    for (auto p : all_posts)
+    vector<char> allowed_commands = {'q', 'w', 'e', 'd', 'c', 'x', 'z', 'a', 's'};
+    for (char attemp : allowed_commands)
     {
-        cout << "X = " << p.getCord()[0] << " and Y = " << p.getCord()[1];
-        cout << ". Status: " << p.get_Status() << endl;
+        if (tolower(command) == attemp)
+            return true;
     }
-    
-    cout << endl << "Printando as caracteristicas de cada Robot:" << endl;
-    for (auto r : robots)
+    return false;
+}
+
+bool Game::isAlive()
+{
+    if (player.getStatus() == 'h')
+        return true;
+    return false;
+}
+
+int Game::player_collide()
+{
+    return 0;
+}
+void Game::player_moves()
+{
+    char button;
+
+    cout << "The robots are chasing you! Press a command to run away from them: " << endl;
+    cin >> button;
+
+    if (cin.eof())
     {
-        cout << "X = " << r.getCord()[0] << " and Y = " << r.getCord()[1];
-        cout << ". Status: " << r.getStatus() << " and ID = " << r.getID() << endl;
+        exit(0);
     }
-    
+
+    while (!valid_button(button) || cin.peek() != '\n')
+    {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        printMaze();
+        cerr << "Invalid command. Please choose another button." << endl;
+        cin >> button;
+        if (cin.eof())
+        {
+            exit(0);
+        }
+    }
+
+    if (cin.eof())
+    {
+        exit(0);
+    }
+
+    if (player_collide() == 0)
+    {
+        char**maze_copy= maze.getMaze();
+        if (tolower(button) == 'w')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0] - 1, player.getCord()[1]);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+
+        else if (tolower(button) == 'q')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0] - 1, player.getCord()[1] - 1);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+
+        else if (tolower(button) == 'e')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0] - 1, player.getCord()[1] + 1);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+
+        else if (tolower(button) == 'a')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0], player.getCord()[1] - 1);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+
+        else if (tolower(button) == 's')
+        {
+            player.setCord(player.getCord()[0], player.getCord()[1]);
+        }
+
+        else if (tolower(button) == 'd')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0], player.getCord()[1] + 1);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+
+        else if (tolower(button) == 'z')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0] + 1, player.getCord()[1] - 1);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+
+        else if (tolower(button) == 'x')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0] + 1, player.getCord()[1]);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+
+        else if (tolower(button) == 'c')
+        {
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
+            player.setCord(player.getCord()[0] + 1, player.getCord()[1] + 1);
+            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
+        }
+        maze.refreshMaze(maze_copy);
+    }
+
+    else if (player_collide() == 1)
+    {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid movement. Please select another movement." << endl;
+    }
+
+    else if (player_collide() == 2)
+    {
+        player.changeStatus();
+    }
+
 }
