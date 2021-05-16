@@ -24,6 +24,9 @@ int main()
     Game game;
     game.createMaze(number_maze);
     game.createObjects();
-    
+
+    // Para testar se tudo é feito em condições:
+    game.test();
+
     return 0;
 }

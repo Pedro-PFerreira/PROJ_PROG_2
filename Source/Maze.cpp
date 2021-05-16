@@ -86,3 +86,8 @@ void Maze::includePost(Post post)
 {
     posts.push_back(post);
 }
+
+vector<Post> Maze::getPosts()
+{
+    return posts;
+}

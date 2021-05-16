@@ -2,6 +2,7 @@
 
 #include "Game.hpp"
 #include "Robot.cpp"
+#include "Post.hpp"
 
 Game::Game()
 {
@@ -32,8 +33,6 @@ void Game::printMaze()
 
 void Game::createObjects()
 {   
-    printMaze();
-
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
     unsigned int cont_robot = 0;
@@ -69,4 +68,30 @@ void Game::createObjects()
             }
         }
     }
+}
+
+void Game::test()
+{
+    cout << endl << "Printando a maze:" << endl;
+    printMaze();
+
+    cout << endl << "Printando as caracteristicas do Player:" << endl;
+    cout << "X = " << player.getCord()[0] << " and Y = " << player.getCord()[1] << endl;
+    cout << "Status: " << player.getStatus() << endl;
+
+    cout << endl << "Printando as caracteristicas de cada Post:" << endl;
+    vector<Post> all_posts = maze.getPosts();
+    for (auto p : all_posts)
+    {
+        cout << "X = " << p.getCord()[0] << " and Y = " << p.getCord()[1];
+        cout << ". Status: " << p.get_Status() << endl;
+    }
+    
+    cout << endl << "Printando as caracteristicas de cada Robot:" << endl;
+    for (auto r : robots)
+    {
+        cout << "X = " << r.getCord()[0] << " and Y = " << r.getCord()[1];
+        cout << ". Status: " << r.getStatus() << " and ID = " << r.getID() << endl;
+    }
+    
 }
