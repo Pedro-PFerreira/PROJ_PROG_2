@@ -7,6 +7,7 @@
 #include "Show_Menu.cpp"
 #include "Maze.cpp"
 #include "Game.cpp"
+#include "Player.cpp"
 
 using namespace std;
 

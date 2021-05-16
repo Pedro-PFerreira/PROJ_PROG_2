@@ -1,10 +1,12 @@
 // Grupo
 
 #include "Game.hpp"
-#include <iostream>
+
 Game::Game()
 {
     maze = maze;
+    player = player;
+    robots = robots;
 }
 
 void Game::createMaze(int number_maze) 

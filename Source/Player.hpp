@@ -3,7 +3,6 @@
 #ifndef PLAYER_DEFINED
 #define PLAYER_DEFINED
 
-
 class Player 
 {
     public:

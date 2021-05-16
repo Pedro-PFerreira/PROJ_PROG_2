@@ -2,9 +2,8 @@
 
 #include <vector>
 #include "Player.hpp"
-using namespace std;
 
-Player :: Player()
+Player::Player()
 {
     x = x;
     y = y;

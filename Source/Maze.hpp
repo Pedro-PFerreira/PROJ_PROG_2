@@ -2,12 +2,12 @@
 
 #ifndef MAZE_DEFINED
 #define MAZE_DEFINED
-
-#include "Post.hpp"
+    
 #include <sstream>
 #include <fstream>
 #include <vector>
 #include <string>
+#include "Post.hpp"
 
 class Maze 
 {
@@ -20,7 +20,6 @@ class Maze
     void setDimension(unsigned int lines, unsigned int cols);
     void setName(string name);
     vector<unsigned int> getDimensions();
-    void includePost(Post post);
     vector<Post> getPosts();
 
     private:

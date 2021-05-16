@@ -9,7 +9,6 @@
 
 class Game
 {
-
     public:
     Game();
     void createMaze(int number_maze);
@@ -17,8 +16,8 @@ class Game
     void createObjects();
 
     private:
-    //Player player;
-    //vector<Robot> robots;
+    Player player;
+    vector<Robot> robots;
     Maze maze;
     
     // void movimento dos robots
