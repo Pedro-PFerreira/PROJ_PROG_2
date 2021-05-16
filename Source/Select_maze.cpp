@@ -5,9 +5,10 @@
 
 using namespace std;
 
-void choose_maze(bool &want_play)
+// File name!!!!!!!!!!!!!!!!!!!!!--->>>> Important!!!!!
+
+void choose_maze(bool &want_play, int &number_maze)
 {
-    int number_maze;
     string file_name;
     cout << "Please the number of the maze (type 0 to go back):" << endl;
 
@@ -35,7 +36,5 @@ void choose_maze(bool &want_play)
     else
     {
         want_play = true;
-        //chamar construtor
-
     }
 }

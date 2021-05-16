@@ -26,7 +26,7 @@ void ShowRules()
     file.close();
 }
 
-void Menu(bool &want_play)
+void Menu(bool &want_play, int &number_maze)
 {
     int button;
 
@@ -72,7 +72,7 @@ void Menu(bool &want_play)
     }
     else if (button == 2)
     {
-        choose_maze(want_play);
+        choose_maze(want_play, number_maze);
     }
 
     else if (button == 0)
