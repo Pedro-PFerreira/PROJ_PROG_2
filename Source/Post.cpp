@@ -36,3 +36,8 @@ void Post::change_Status(char status)
     if (status == '*')
         status = '+';
 }
+
+char Post::get_Status()
+{
+    return status;
+}

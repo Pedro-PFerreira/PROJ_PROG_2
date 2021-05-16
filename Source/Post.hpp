@@ -13,6 +13,7 @@ class Post
     void set_Status(char status);
     vector <unsigned int> getCord();
     void change_Status(char status);
+    char get_Status();
 
     private:
     char status;
