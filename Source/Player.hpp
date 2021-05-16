@@ -1,5 +1,9 @@
 //Grupo
 
+#ifndef PLAYER_DEFINED
+#define PLAYER_DEFINED
+
+
 class Player 
 {
     public:
@@ -16,3 +20,5 @@ class Player
     unsigned int y;
     char status;
 };
+
+#endif

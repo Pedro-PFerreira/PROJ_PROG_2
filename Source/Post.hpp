@@ -1,5 +1,9 @@
 //Grupo
 
+#ifndef POST_DEFINED
+#define POST_DEFINED
+
+
 class Post
 {
     public:
@@ -16,3 +20,4 @@ class Post
     unsigned int y;
 };
 
+#endif

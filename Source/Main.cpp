@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Show_Menu.cpp"
-
+#include "Maze.cpp"
 #include "Game.cpp"
 
 using namespace std;
@@ -23,6 +23,6 @@ int main()
     Game game;
     game.createMaze(number_maze);
     game.createObjects();
-
+    
     return 0;
 }

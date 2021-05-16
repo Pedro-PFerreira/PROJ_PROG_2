@@ -1,7 +1,10 @@
 //Grupo
 
+#include <sstream>
+#include <fstream>
+#include <vector>
+#include <string>
 #include "Maze.hpp"
-
 #include "Post.cpp"
 
 Maze::Maze()
@@ -68,17 +71,7 @@ vector<unsigned int> Maze::getDimensions()
     return dimensions;
 }
 
-void Maze::includePost(Post post) 
+char ** Maze::getMaze()
 {
-    posts.push_back(post);
-}
-
-string Maze::getName() 
-{
-    return name;
-}
-
-vector<Post> Maze::getPosts()
-{
-    return posts;
+    return maze_content;
 }

@@ -1,6 +1,13 @@
 //Grupo
 
-#include "Post.cpp"
+#ifndef MAZE_DEFINED
+#define MAZE_DEFINED
+
+
+#include <sstream>
+#include <fstream>
+#include <vector>
+#include <string>
 
 class Maze 
 {
@@ -11,14 +18,13 @@ class Maze
     void setMaze(int number_maze);
     void setDimension(unsigned int lines, unsigned int cols);
     void setName(string name);
-    void includePost(Post new_post);
     vector<unsigned int> getDimensions();
-    vector<Post> getPosts();
 
     private:
     unsigned int lines;
     unsigned int cols;
-    vector<Post> posts;
     string name;
     char **maze_content;
 };
+
+#endif

@@ -1,18 +1,29 @@
 //Grupo
 
+#ifndef GAME_DEFINED
+#define GAME_DEFINED
+
+#include "Maze.hpp"
 #include "Player.hpp"
 #include "Robot.hpp"
-#include "Maze.hpp"
 
-class Game 
+class Game
 {
+
     public:
     Game();
     void createMaze(int number_maze);
     void createObjects();
 
     private:
-    Player player;
-    vector<Robot> robots;
-    Maze maze_something;
+    //Player player;
+    //vector<Robot> robots;
+    Maze maze;
+    
+    // void movimento dos robots
+    // void movimento do player
+    // bool colisions robot
+    // bool colision robot
 };
+
+#endif

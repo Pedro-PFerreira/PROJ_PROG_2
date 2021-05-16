@@ -1,40 +1,29 @@
-//Grupo
-
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <array>
-#include <vector>
-#include <iostream>
+// Grupo
 
 #include "Game.hpp"
 
-#include "Player.cpp"
-#include "Robot.cpp"
-#include "Maze.cpp"
-#include "Post.cpp"
-
 Game::Game()
 {
-    Maze maze = Maze();
+    maze = maze;
 }
 
 void Game::createMaze(int number_maze) 
 {
-    maze_something.setMaze(number_maze);
+    maze.setMaze(number_maze);
 }   
 
 void Game::createObjects()
 {   
-    char **new_maze = maze_something.getMaze();
-    int lines = maze_something.getDimensions()[0];
-    int cols = maze_something.getDimensions()[1];
+    int lines = maze.getDimensions()[0];
+    int cols = maze.getDimensions()[1];
+    cout << "lines " << lines << " and cols " << cols << endl;
 
-    for (int line = 0 ; line < lines ; lines++ )
+    for (int line = 0 ; line < lines ; line++ )
     {
-        for (int col = 0 ; col < cols ; cols++ )
+        for (int col = 0 ; col < cols ; col++ )
         {
-            cout << "Create something" << endl;
+            cout << maze.getMaze()[line][col];
         }
+        cout << endl;
     }
 }

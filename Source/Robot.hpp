@@ -1,5 +1,9 @@
 //Grupo
 
+#ifndef ROBOT_DEFINED
+#define ROBOT_DEFINED
+
+
 #include <vector>
 using namespace std;
 
@@ -19,3 +23,5 @@ class Robot
     unsigned int y;
     char status;
 };
+
+#endif
