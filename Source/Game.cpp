@@ -136,34 +136,27 @@ void Game::player_moves()
     }
 
     if (player_collide() == 0)
-    {
+    {   
         char**maze_copy= maze.getMaze();
+        maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
         if (tolower(button) == 'w')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0] - 1, player.getCord()[1]);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
 
         else if (tolower(button) == 'q')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0] - 1, player.getCord()[1] - 1);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
 
         else if (tolower(button) == 'e')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0] - 1, player.getCord()[1] + 1);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
 
         else if (tolower(button) == 'a')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0], player.getCord()[1] - 1);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
 
         else if (tolower(button) == 's')
@@ -173,31 +166,24 @@ void Game::player_moves()
 
         else if (tolower(button) == 'd')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0], player.getCord()[1] + 1);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
 
         else if (tolower(button) == 'z')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0] + 1, player.getCord()[1] - 1);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
 
         else if (tolower(button) == 'x')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0] + 1, player.getCord()[1]);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
 
         else if (tolower(button) == 'c')
         {
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
             player.setCord(player.getCord()[0] + 1, player.getCord()[1] + 1);
-            maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         }
+        maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         maze.refreshMaze(maze_copy);
     }
 
