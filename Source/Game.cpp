@@ -1,6 +1,7 @@
 // Grupo
 
 #include "Game.hpp"
+#include "Robot.cpp"
 
 Game::Game()
 {
@@ -32,6 +33,7 @@ void Game::printMaze()
 void Game::createObjects()
 {   
     printMaze();
+
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
     unsigned int cont_robot = 0;
@@ -40,15 +42,22 @@ void Game::createObjects()
     {
         for (int col = 0 ; col < cols ; col++ )
         {   
-            char current_item = maze.getMaze()[line][col];
-            if (current_item == 'R' || current_item == 'r')
+            char current_char = maze.getMaze()[line][col];
+
+            if (current_char == 'R' || current_char == 'r')
             {   
                 Robot robot = Robot();
                 robot.setCord(line, col);
-                robot.setStatus(current_item);
+                robot.setStatus(current_char);
                 robot.setID(cont_robot);
                 cont_robot++;
                 robots.push_back(robot);
+            }
+
+            else if (current_char == 'H' || current_char == 'h')
+            {
+                player.setCord(line, col);
+                player.setStatus(current_char);
             }
         }
     }
