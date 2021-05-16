@@ -1,6 +1,5 @@
 //Grupo
 
-#include <vector>
 #include "Player.hpp"
 
 Player::Player()

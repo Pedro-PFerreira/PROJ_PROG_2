@@ -4,11 +4,12 @@
 #include "Robot.hpp"
 using namespace std;
 
-Robot :: Robot()
+Robot::Robot()
 {
     x = x;
     y = y;
     status = status;
+    id = id;
 }
 
 void Robot::setCord (unsigned int x, unsigned int y)
@@ -20,6 +21,11 @@ void Robot::setCord (unsigned int x, unsigned int y)
 void Robot::setStatus(char status) 
 {
     this -> status = status;
+}
+
+void Robot::setID(unsigned int id)
+{
+    this -> id = id;
 }
 
 void Robot::changeStatus() 
@@ -44,4 +50,9 @@ vector<unsigned int> Robot::getCord()
 char Robot::getStatus()
 {
     return status;
+}
+
+unsigned int Robot::getID()
+{
+    return id;
 }

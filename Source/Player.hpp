@@ -3,6 +3,8 @@
 #ifndef PLAYER_DEFINED
 #define PLAYER_DEFINED
 
+#include <vector>
+
 class Player 
 {
     public:
