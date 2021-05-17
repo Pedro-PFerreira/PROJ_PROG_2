@@ -27,10 +27,9 @@ int main()
 
     while (!game.end()) 
     {
-        game.printMaze();
         game.player_moves();
+        game.printMaze();
     }
-    game.printMaze();
     
     if (game.isAlive())
     {

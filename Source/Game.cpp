@@ -35,6 +35,7 @@ void Game::printMaze()
 
 void Game::createObjects()
 {
+    printMaze();
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
     unsigned int cont_robot = 1;
@@ -236,10 +237,13 @@ void Game::robot_moves()
 {
     for (auto robot : robots)
     {
-        char ** copy_maze = maze.getMaze();
+        if (!end())
+        {
+            char ** copy_maze = maze.getMaze();
 
-        cout << "Avaliar o movimento (se colide com o player, uma fence, outro robot ou vai para local vazio) e ajustar os chars da maze" << endl;
+            cout << "Avaliar o movimento (se colide com o player, uma fence, outro robot ou vai para local vazio) e ajustar os chars da maze" << endl;
 
-        maze.refreshMaze(copy_maze);
+            maze.refreshMaze(copy_maze);
+        }
     }
 }
