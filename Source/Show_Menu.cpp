@@ -80,6 +80,7 @@ void Menu(bool &want_play, int &number_maze)
 
     else if (button == 3)
     {
+        cout << endl;
         Show_winners();
         cout << "Press any button to go back" << endl;
         cin >> button;
