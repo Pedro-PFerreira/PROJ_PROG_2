@@ -236,20 +236,21 @@ void Game::player_moves()
 void Game::robot_moves()
 {
     for (auto robot : robots)
-    {   char **copy_maze = maze.getMaze();
-        if (!end() || robot.getStatus() == 'R')
+    {   
+        char ** copy_maze = maze.getMaze();
+        if (!end() && robot.getStatus() == 'R' && copy_maze[robot.getCord()[0]][robot.getCord()[1]] == 'R')
         {
-            
             int dist_v, dist_h;
 
-            dist_h = robot.getCord()[0] - player.getCord()[0];
+            dist_v = robot.getCord()[0] - player.getCord()[0];
 
-            dist_v = robot.getCord()[1] - player.getCord()[1];
+            dist_h = robot.getCord()[1] - player.getCord()[1];
 
             unsigned int new_x = robot.getCord()[0];
 
             unsigned int new_y = robot.getCord()[1];
-
+            //cout << "Dist H: " << dist_h << " and dist V: " << dist_v << endl;
+            //cout << new_x << " and " << new_y << endl;
             if (dist_h > 0 && dist_v == 0)
             {
                 new_y--;
@@ -282,6 +283,7 @@ void Game::robot_moves()
                 new_x--;
                 new_y--;
             }
+            //cout << new_x << " and " << new_y << endl << endl;
             if (copy_maze[new_x][new_y] == ' ')
             {
                 copy_maze[robot.getCord()[0]][robot.getCord()[1]] = ' ';
@@ -292,7 +294,7 @@ void Game::robot_moves()
             else if (copy_maze[new_x][new_y] == '*')
             {   
                 copy_maze[robot.getCord()[0]][robot.getCord()[1]] = 'r';
-                robot.changeStatus();
+                robot.changeStatus('r');
             }
             else if (copy_maze[new_x][new_y] == 'H')
             {
@@ -304,14 +306,16 @@ void Game::robot_moves()
             {
                 copy_maze[robot.getCord()[0]][robot.getCord()[1]] = ' ';
                 copy_maze[new_x][new_y] = 'r';
-                robot.changeStatus();
+                robot.changeStatus('r');
             }
-            maze.refreshMaze(copy_maze);
+            maze.refreshMaze(copy_maze); 
         }
         else if (copy_maze[robot.getCord()[0]][robot.getCord()[1]] == 'r')
         {
-            robot.changeStatus();
-            maze.refreshMaze(copy_maze);            
+            robot.changeStatus('r');          
         }
+        maze.refreshMaze(copy_maze);  
+
+        cout << "Robot " << robot.getID() << " status " << robot.getStatus() << endl;
     }
 }

@@ -28,9 +28,9 @@ void Robot::setID(unsigned int id)
     this -> id = id;
 }
 
-void Robot::changeStatus() 
+void Robot::changeStatus(char s) 
 {
-    status = 'r';
+    status = s;
 }
 
 void Robot::changeCord(unsigned int x, unsigned int y)

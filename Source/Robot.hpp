@@ -14,7 +14,7 @@ class Robot
     void setCord (unsigned int x, unsigned int y);
     void setStatus(char status);
     void setID(unsigned int id);
-    void changeStatus();
+    void changeStatus(char s);
     char getStatus();
     unsigned int getID();
     void changeCord(unsigned int x, unsigned int y);
