@@ -96,7 +96,7 @@ bool Game::valid_button(char command)
 
 bool Game::isAlive()
 {
-    return player.getStatus() == 'H' || player.getStatus() == 'W';
+    return player.getStatus() == 'H';
 }
 
 int Game::player_collide(char button)
@@ -237,7 +237,7 @@ void Game::robot_moves()
 {
     for (auto robot : robots)
     {
-        if (!end())
+        if (!end() && robot.getStatus() == 'R')
         {
             char ** copy_maze = maze.getMaze();
 
