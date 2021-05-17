@@ -5,6 +5,7 @@
 #include "Post.hpp"
 #include <iostream>
 using namespace std;
+
 Game::Game()
 {
     maze = maze;
@@ -36,7 +37,7 @@ void Game::createObjects()
 {
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
-    unsigned int cont_robot = 0;
+    unsigned int cont_robot = 1;
 
     for (int line = 0; line < lines; line++)
     {
@@ -73,14 +74,12 @@ void Game::createObjects()
 
 bool Game::end()
 {
-    bool answer = true;
+    bool all_dead = true;
     for (auto robot : robots)
     {
-        answer = answer && robot.getStatus() == 'r';
+        all_dead = all_dead && robot.getStatus() == 'r';
     }
-    answer = answer && player.getStatus() == 'h';
-    answer = answer || player_collide() == 3;
-    return answer;
+    return all_dead || !isAlive() || player.Win();
 }
 
 bool Game::valid_button(char command)
@@ -96,15 +95,39 @@ bool Game::valid_button(char command)
 
 bool Game::isAlive()
 {
-    if (player.getStatus() == 'h')
-        return true;
-    return false;
+    return player.getStatus() == 'H' || player.getStatus() == 'W';
 }
 
-int Game::player_collide()
-{
-    return 0;
+int Game::player_collide(char button)
+{   
+    button = tolower(button);
+    unsigned int x = player.getCord()[0];
+    unsigned int y = player.getCord()[1];
+    
+    if (button == 'q' || button == 'w' || button == 'e')
+        x--;
+    if (button == 'z' || button == 'x' || button == 'c')
+        x++;
+    if (button == 'q' || button == 'a' || button == 'z')
+        y--;
+    if (button == 'e' || button == 'd' || button == 'c')
+        y++; 
+
+    char next_char = maze.getMaze()[x][y];
+    if (next_char == ' ')
+        return 0;
+    if (next_char == '+' || next_char == 'r')
+        return 1;
+    if (next_char == '*' || next_char == 'R')
+        return 2;
+    if (next_char == 'O')
+    {
+        player.changeWin();
+        return 3;
+    }
+    return 4;
 }
+
 void Game::player_moves()
 {
     char button;
@@ -134,9 +157,9 @@ void Game::player_moves()
     {
         exit(0);
     }
-
-    if (player_collide() == 0)
-    {   
+    
+    if (!player_collide(button) || player_collide(button) == 3)
+    {      
         char**maze_copy= maze.getMaze();
         maze_copy[player.getCord()[0]][ player.getCord()[1]] = ' ';
         if (tolower(button) == 'w')
@@ -179,24 +202,44 @@ void Game::player_moves()
             player.setCord(player.getCord()[0] + 1, player.getCord()[1]);
         }
 
-        else if (tolower(button) == 'c')
+        else if (tolower(button) == 'w')
         {
             player.setCord(player.getCord()[0] + 1, player.getCord()[1] + 1);
         }
+
         maze_copy[player.getCord()[0]][ player.getCord()[1]] = 'H';
         maze.refreshMaze(maze_copy);
+
+        if (isAlive() && !player.Win()) 
+        {
+            robot_moves();
+        }
     }
 
-    else if (player_collide() == 1)
+    else if (player_collide(button) == 1)
     {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Invalid movement. Please select another movement." << endl;
     }
 
-    else if (player_collide() == 2)
+    else if (player_collide(button) == 2)
     {
-        player.changeStatus();
+        player.changeStatus('h');
+        char ** copy_maze = maze.getMaze();
+        copy_maze[player.getCord()[0]][player.getCord()[1]] = player.getStatus();
+        maze.refreshMaze(copy_maze);
     }
+}
 
+void Game::robot_moves()
+{
+    for (auto robot : robots)
+    {
+        char ** copy_maze = maze.getMaze();
+
+        cout << "Avaliar o movimento (se colide com o player, uma fence, outro robot ou vai para local vazio) e ajustar os chars da maze" << endl;
+
+        maze.refreshMaze(copy_maze);
+    }
 }

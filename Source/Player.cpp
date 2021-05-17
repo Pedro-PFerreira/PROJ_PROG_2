@@ -7,6 +7,7 @@ Player::Player()
     x = x;
     y = y;
     status = status;
+    win = false;
 }
 
 void Player::setCord (unsigned int x, unsigned int y)
@@ -20,9 +21,9 @@ void Player::setStatus(char status)
     this -> status = status;
 }
 
-void Player::changeStatus() 
+void Player::changeStatus(char status) 
 {
-    status = 'h';
+    this-> status = status;
 }
 
 void Player::changeCord(unsigned int x, unsigned int y)
@@ -42,4 +43,14 @@ vector<unsigned int> Player::getCord()
 char Player::getStatus()
 {
     return status;
+}
+
+void Player::changeWin()
+{
+    win = true;
+}
+
+bool Player::Win()
+{
+    return win;
 }

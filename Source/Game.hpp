@@ -17,16 +17,10 @@ class Game
     bool end();
     void robot_moves();
     void player_moves();
-    bool robots_collide();
-    int player_collide();
+    int player_collide(char button);
+    int robots_collide();
     bool valid_button(char button);
     bool isAlive();
-
-    // void movimento dos robots
-    // void movimento do player
-    // bool colisions robot
-    // bool colision robot
-    //bool isAlive()
 
     private:
     Player player;

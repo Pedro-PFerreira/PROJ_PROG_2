@@ -3,7 +3,6 @@
 #ifndef POST_DEFINED
 #define POST_DEFINED
 
-
 class Post
 {
     public:

@@ -29,9 +29,9 @@ int main()
     {
         game.printMaze();
         game.player_moves();
-
     }
-
+    game.printMaze();
+    
     if (game.isAlive())
     {
         cout << "Congratulations, you won!";

@@ -11,15 +11,18 @@ class Player
     Player();
     void setCord (unsigned int x, unsigned int y);
     void setStatus(char status);
-    void changeStatus();
+    void changeWin();
+    void changeStatus(char status);
     char getStatus();
     void changeCord(unsigned int x, unsigned int y);
+    bool Win();
     vector<unsigned int> getCord();
 
     private:
     unsigned int x;
     unsigned int y;
     char status;
+    bool win;
 };
 
 #endif
