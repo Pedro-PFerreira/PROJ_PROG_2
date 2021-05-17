@@ -11,7 +11,7 @@
 using namespace std;
 typedef pair<int, string> record;
 
-void Show_winners()
+void Show_winners() /** This function shows all the winners of each maze on console, in case if they exist. If so, shows by ascending order the winners with the best times, otherwise it shows "Empty list." on the screen **/
 {
     char command;
     bool any_winner = false;
@@ -47,7 +47,7 @@ void Show_winners()
         cout << "Empty list." << endl;
 }
 
-void write_file(int time, int num_maze)
+void write_file(int time, int num_maze) /** This function writes to the record's file the new name of the user and the time spent to complete the maze, in case he/she has completed the maze succesfully. If the record's file of the maze played by the user already exists, it simplty adds the name and the time on file, if he/she did a better time than before, or only warns the user that a better time already exists, if so; otherwise it creates a new file, adding the player's maze and the time to it. **/
 {
     set <record> all_winners;
     string name, file_name, current_line, header1, header2, winner_name;
@@ -97,12 +97,12 @@ void write_file(int time, int num_maze)
             
             if (winner_time < time && winner_name == name)
             {
-                cout << "Uma especie de mensagem a dizer que ja tem um tempo melhor anterior" << endl;
+                cout << "New record, congratulations!" << endl;
                 new_record = false;
             }
             else if (winner_time >= time && winner_name == name)
             {
-                cout << "Significa que está nos records e tem de se atualizar o tempo dele para o mais recente, ou seja, o melhor" << endl;
+                cout << "A better time already exists." << endl;
                 winner_time = time;
                 new_record = false;
             }

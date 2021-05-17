@@ -5,6 +5,7 @@
 
 #include <vector>
 
+// The class Player ensures the good functionality of the player during the game. In the "Player.cpp" explains how each function works.**/
 class Player 
 {
     public:

@@ -8,7 +8,7 @@
 #include "Select_maze.cpp"
 using namespace std;
 
-void ShowRules()
+void ShowRules() /** This function shows on the screen the content of the file RULES.TXT **/
 {
 
     ifstream file;
@@ -26,7 +26,7 @@ void ShowRules()
     file.close();
 }
 
-void Menu(bool &want_play, int &number_maze)
+void Menu(bool &want_play, int &number_maze) /** This function secures the functionality of the menu, according to the commands inputed by the user: if he/she types 0, the game finishes its execution, if he/she types 1, The game's rules are shown on the screen;if it was typed 2, the player will choose the maze to play, if is was inputed 3, the winners of each maze will be shown on the screen. **/
 {
     int button;
 
@@ -80,10 +80,8 @@ void Menu(bool &want_play, int &number_maze)
 
     else if (button == 3)
     {
-        cout << endl;
         Show_winners();
-        cout << "Press any button to go back" << endl;
-        cin >> button;
+        cout << "Press any button to go back to main menu." << endl;
         if (cin.eof())
         {
             exit(0);
@@ -91,6 +89,7 @@ void Menu(bool &want_play, int &number_maze)
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         if (cin)
+
             want_play = false;
     }
 

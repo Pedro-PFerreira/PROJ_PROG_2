@@ -7,6 +7,8 @@
 #include "Player.hpp"
 #include "Robot.hpp"
 
+/** This class Game will ensure the interactions of the various objects, such as robots, the player, the posts, according to the game's rules. **/
+
 class Game
 {
     public:

@@ -1,24 +1,25 @@
 // Grupo
 
+// Game's method
 #include "Game.hpp"
 #include "Robot.cpp"
 #include "Post.hpp"
 #include <iostream>
 using namespace std;
 
-Game::Game()
+Game::Game() /** This is the contructor of the class Game() **/
 {
     maze = maze;
     player = player;
     robots = robots;
 }
 
-void Game::createMaze(int number_maze)
+void Game::createMaze(int number_maze) /** This method creates the maze selected by the user thanks to the number chosen by him / her **/
 {
     maze.setMaze(number_maze);
 }
 
-void Game::printMaze()
+void Game::printMaze() /** This method shows on the screen the maze selected by the user **/
 {
     int lines = maze.getDimensions()[0];
     int cols = maze.getDimensions()[1];
@@ -33,7 +34,7 @@ void Game::printMaze()
     }
 }
 
-void Game::createObjects()
+void Game::createObjects() /** This method creates the various elements of the game (such as posts, the robots and the player) by their corresponding symbol: 'h'/'H' represents the player, 'R'/'r' represents the robots and the '*' / '+' symols correspond to the fences. **/
 {
     printMaze();
     int lines = maze.getDimensions()[0];
@@ -73,7 +74,7 @@ void Game::createObjects()
     }
 }
 
-bool Game::end()
+bool Game::end() /** This method verifies if the has already ended, by checking if al the robots are destroyed (that is, each robot's status is represented by an 'r'); iit checks if the player is alive, thanks to the isAlive() function or if the players has won the game. **/
 {
     bool all_dead = true;
     for (auto robot : robots)
@@ -83,7 +84,7 @@ bool Game::end()
     return all_dead || !isAlive() || player.Win();
 }
 
-bool Game::valid_button(char command)
+bool Game::valid_button(char command) /** This method verifies if the user has inputed a valid button, that is, if the character typed by him/her corresponds to one of the characters in @param allowed_commands. **/
 {
     vector<char> allowed_commands = {'q', 'w', 'e', 'd', 'c', 'x', 'z', 'a', 's'};
     for (char attemp : allowed_commands)
@@ -94,12 +95,12 @@ bool Game::valid_button(char command)
     return false;
 }
 
-bool Game::isAlive()
+bool Game::isAlive() /** This method veriifies if the player is still alive, in other words, it checks if the status of the player correponds to a 'H'. It returns true if so, otherwise, it returns false. **/
 {
     return player.getStatus() == 'H';
 }
 
-int Game::player_collide(char button)
+int Game::player_collide(char button) /** This method verifies if the player collides with other object (with a fence or a robot), returning 0 if it is a valid one, 1 if he/she collided with a non-electrified fence or a stuck robot, 2 if he has collided with a live robot or an electrified, meaning that he/she has lost the game, 3 if he/she finds an exit to escape the maze ('O').**/
 {
     button = tolower(button);
     unsigned int x = player.getCord()[0];
@@ -129,7 +130,7 @@ int Game::player_collide(char button)
     return 4;
 }
 
-void Game::player_moves()
+void Game::player_moves() /** This method assures the the moevement of the player, according to the letter typed by the user. The validaty is assured by the player_colllide() function. **/
 {
     char button;
 
@@ -233,7 +234,7 @@ void Game::player_moves()
     }
 }
 
-void Game::robot_moves()
+void Game::robot_moves() /** This method assures the movement of the robots, according to the movement of the player. It also updates their status in each move, depending on if they had collided with other object (player or fences). **/
 {
     for (auto &robot : robots)
     {   
