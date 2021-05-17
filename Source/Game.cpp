@@ -115,7 +115,7 @@ int Game::player_collide(char button)
         y++;
 
     char next_char = maze.getMaze()[x][y];
-    if (next_char == ' ')
+    if (next_char == ' ' || next_char == 'H')
         return 0;
     if (next_char == '+' || next_char == 'r')
         return 1;
@@ -235,7 +235,7 @@ void Game::player_moves()
 
 void Game::robot_moves()
 {
-    for (auto robot : robots)
+    for (auto &robot : robots)
     {   
         char ** copy_maze = maze.getMaze();
         if (!end() && robot.getStatus() == 'R' && copy_maze[robot.getCord()[0]][robot.getCord()[1]] == 'R')
@@ -249,8 +249,7 @@ void Game::robot_moves()
             unsigned int new_x = robot.getCord()[0];
 
             unsigned int new_y = robot.getCord()[1];
-            //cout << "Dist H: " << dist_h << " and dist V: " << dist_v << endl;
-            //cout << new_x << " and " << new_y << endl;
+
             if (dist_h > 0 && dist_v == 0)
             {
                 new_y--;
@@ -283,7 +282,7 @@ void Game::robot_moves()
                 new_x--;
                 new_y--;
             }
-            //cout << new_x << " and " << new_y << endl << endl;
+
             if (copy_maze[new_x][new_y] == ' ')
             {
                 copy_maze[robot.getCord()[0]][robot.getCord()[1]] = ' ';
@@ -308,14 +307,11 @@ void Game::robot_moves()
                 copy_maze[new_x][new_y] = 'r';
                 robot.changeStatus('r');
             }
-            maze.refreshMaze(copy_maze); 
         }
         else if (copy_maze[robot.getCord()[0]][robot.getCord()[1]] == 'r')
         {
             robot.changeStatus('r');          
         }
         maze.refreshMaze(copy_maze);  
-
-        cout << "Robot " << robot.getID() << " status " << robot.getStatus() << endl;
     }
 }

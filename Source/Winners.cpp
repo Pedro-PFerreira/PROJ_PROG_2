@@ -79,6 +79,7 @@ void write_file(int time, int num_maze)
 
     if (file.good())
     {   
+        bool new_record = true;
         getline(file, header1);
         getline(file, header2);
         
@@ -96,18 +97,26 @@ void write_file(int time, int num_maze)
             
             if (winner_time < time && winner_name == name)
             {
-                cout << "Uma espécie de mensagem a dizer que já tem um tempo melhor anterior" << endl;
+                cout << "Uma especie de mensagem a dizer que ja tem um tempo melhor anterior" << endl;
+                new_record = false;
             }
             else if (winner_time >= time && winner_name == name)
             {
                 cout << "Significa que está nos records e tem de se atualizar o tempo dele para o mais recente, ou seja, o melhor" << endl;
                 winner_time = time;
+                new_record = false;
             }
 
             record current = make_pair(winner_time, winner_name); 
             all_winners.insert(current);
         }
         file.close();
+
+        if (new_record)
+        {
+            record new_winner = make_pair(time, name);
+            all_winners.insert(new_winner);
+        }
 
         ofstream file;
         file.open(file_name);
