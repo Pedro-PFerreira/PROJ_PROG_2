@@ -18,7 +18,6 @@ class Game
     void robot_moves();
     void player_moves();
     int player_collide(char button);
-    int robots_collide();
     bool valid_button(char button);
     bool isAlive();
 

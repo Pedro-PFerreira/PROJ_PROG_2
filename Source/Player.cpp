@@ -1,6 +1,9 @@
 //Grupo
 
 #include "Player.hpp"
+#include <vector>
+
+using namespace std;
 
 Player::Player()
 {
@@ -21,9 +24,9 @@ void Player::setStatus(char status)
     this -> status = status;
 }
 
-void Player::changeStatus(char status) 
+void Player::changeStatus() 
 {
-    this-> status = status;
+    status = 'h';
 }
 
 void Player::changeCord(unsigned int x, unsigned int y)

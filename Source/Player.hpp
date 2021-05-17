@@ -12,7 +12,7 @@ class Player
     void setCord (unsigned int x, unsigned int y);
     void setStatus(char status);
     void changeWin();
-    void changeStatus(char status);
+    void changeStatus();
     char getStatus();
     void changeCord(unsigned int x, unsigned int y);
     bool Win();
