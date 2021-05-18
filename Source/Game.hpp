@@ -13,15 +13,15 @@ class Game
 {
     public:
     Game();
-    void createMaze(int number_maze);
     void printMaze();
-    void createObjects();
+    void createObjects(int number_maze);
     bool end();
     void robot_moves();
     void player_moves();
     int player_collide(char button);
     bool valid_button(char button);
     bool isAlive();
+    char nextChar(int x, int y);
 
     private:
     Player player;

@@ -27,15 +27,15 @@ int main()
         }
 
         Game game;
-        game.createMaze(number_maze);
-        game.createObjects();
+        game.createObjects(number_maze);
 
         time1 = time(NULL);
         while (!game.end())
-        {
-            game.player_moves();
+        {   
             game.printMaze();
+            game.player_moves();
         }
+        game.printMaze();
         time2 = time(NULL);
 
         if (game.isAlive())
