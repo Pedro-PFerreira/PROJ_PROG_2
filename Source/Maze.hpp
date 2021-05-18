@@ -6,7 +6,7 @@
 #include "Post.hpp"
 #include "Portal.hpp"
 
-class Maze 
+class Maze /** This class Maze will ensure the creation of all elements of the maze, such as robots, the player, the posts and the portals too. In the "Maze.cpp" explains how each method of the class works.**/
 {
     public:
     Maze();
@@ -18,6 +18,7 @@ class Maze
     vector<unsigned int> getDimensions() const;
     vector<Post> getPosts() const;
     vector<Portal> getPortals() const;
+    void changePost(int x, int y);
 
     private:
     unsigned int lines;

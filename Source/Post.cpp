@@ -28,7 +28,7 @@ vector <unsigned int> Post::getCord() const
     return cord;
 }
 
-void Post::change_Status(char status)
+void Post::change_Status()
 {
     if (status == '*')
         status = '+';

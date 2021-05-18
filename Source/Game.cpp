@@ -121,28 +121,29 @@ bool Game::isAlive() const /** This method veriifies if the player is still aliv
 char Game::nextChar(int x, int y) const 
 {
     vector<Portal> portals = maze.getPortals();
-    for (auto portal : portals)
-    {
-        if (portal.getCoords()[0] == x && portal.getCoords()[1] == y)
-            return 'O';
-    }
-
     vector<Post> posts = maze.getPosts();
-    for (auto post : posts) 
-    {
-        if (post.getCord()[0] == x && post.getCord()[1] == y)
-            return post.get_Status();
-    }
-
     for (auto robot : robots)
     {
         if (robot.getCord()[0] == x && robot.getCord()[1] == y)
             return robot.getStatus();
     }
 
+    for (auto post : posts) 
+    {
+        if (post.getCord()[0] == x && post.getCord()[1] == y)
+        {
+            return post.get_Status();            
+        }
+
+    }
+
     if (player.getCord()[0] == x && player.getCord()[1] == y)
         return player.getStatus();
-
+    for (auto portal : portals)
+    {
+        if (portal.getCoords()[0] == x && portal.getCoords()[1] == y)
+            return 'O';
+    }
     return ' ';
 }
 
@@ -175,9 +176,10 @@ int Game::player_collide(char button) /** This method verifies if the player col
         return 3;
     }
     return 4;
+
 }
 
-void Game::player_moves() /** This method assures the the moevement of the player, according to the letter typed by the user. The validaty is assured by the player_colllide() function. **/
+void Game::player_moves() /** This method assures the the movement of the player, according to the letter typed by the user. The validaty is assured by the player_colllide() function. **/
 {
     char button;
 
@@ -249,7 +251,7 @@ void Game::player_moves() /** This method assures the the moevement of the playe
             player.setCord(player.getCord()[0] + 1, player.getCord()[1]);
         }
 
-        else if (tolower(button) == 'w')
+        else if (tolower(button) == 'c')
         {
             player.setCord(player.getCord()[0] + 1, player.getCord()[1] + 1);
         }
@@ -333,10 +335,16 @@ void Game::robot_moves() /** This method assures the movement of the robots, acc
             else if (nextChar(new_x, new_y) == '*') 
             {
                 robot.changeStatus('r');
+                maze.changePost(new_x, new_y);
             }
             else if (nextChar(new_x, new_y) == 'H')
             {         
                 player.changeStatus();
+            }
+            else if (nextChar(new_x, new_y) == '+')
+            {
+                robot.changeCord(new_x,new_y);
+                robot.changeStatus('r');
             }
             else
             {

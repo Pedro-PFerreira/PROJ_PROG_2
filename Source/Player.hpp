@@ -3,7 +3,7 @@
 #ifndef PLAYER_DEFINED
 #define PLAYER_DEFINED
 
-// The class Player ensures the good functionality of the player during the game. In the "Player.cpp" explains how each function works.**/
+// The class Player ensures the good functionality of the player during the game. In the "Player.cpp" explains how each method works.**/
 
 class Player 
 {
