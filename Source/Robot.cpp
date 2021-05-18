@@ -1,15 +1,13 @@
 //Grupo
 
-#include <vector>
 #include "Robot.hpp"
-using namespace std;
 
 Robot::Robot()
 {
-    x = x;
-    y = y;
-    status = status;
-    id = id;
+    x = 0;
+    y = 0;
+    status = 'R';
+    id = 1;
 }
 
 void Robot::setCord (unsigned int x, unsigned int y)
@@ -47,12 +45,12 @@ vector<unsigned int> Robot::getCord()
     return coord;
 }
 
-char Robot::getStatus()
+char Robot::getStatus() const
 {
     return status;
 }
 
-unsigned int Robot::getID()
+unsigned int Robot::getID() const
 {
     return id;
 }

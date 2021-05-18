@@ -15,18 +15,18 @@ class Game
     Game();
     void printMaze();
     void createObjects(int number_maze);
-    bool end();
     void robot_moves();
     void player_moves();
+    bool valid_button(char button) const;
+    bool isAlive() const;
+    bool end() const;
     int player_collide(char button);
-    bool valid_button(char button);
-    bool isAlive();
-    char nextChar(int x, int y);
+    char nextChar(int x, int y) const;
 
     private:
     Player player;
-    vector<Robot> robots;
     Maze maze;
+    vector<Robot> robots;
 };
 
 #endif

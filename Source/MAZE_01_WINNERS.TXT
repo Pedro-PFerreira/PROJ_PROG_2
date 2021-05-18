@@ -3,6 +3,7 @@ Player          - Time
 Jaime Villate   - 3
 Antonio Araujo  - 4
 Pedro Ferreira  - 5
+Fabio           - 6
 Maria Leal      - 6
 Fabio Sa        - 7
 Jorge Silva     - 7

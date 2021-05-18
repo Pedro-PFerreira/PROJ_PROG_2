@@ -9,9 +9,9 @@ class Post
     Post();
     void setCord(unsigned int x, unsigned int y);
     void set_Status(char status);
-    vector <unsigned int> getCord();
     void change_Status(char status);
-    char get_Status();
+    char get_Status() const;
+    vector <unsigned int> getCord() const;
 
     private:
     char status;

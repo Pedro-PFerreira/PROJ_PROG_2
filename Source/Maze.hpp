@@ -2,11 +2,7 @@
 
 #ifndef MAZE_DEFINED
 #define MAZE_DEFINED
-    
-#include <sstream>
-#include <fstream>
-#include <vector>
-#include <string>
+
 #include "Post.hpp"
 #include "Portal.hpp"
 
@@ -14,15 +10,14 @@ class Maze
 {
     public:
     Maze();
-    string getName();
+    string getName() const;
     void setDimension(unsigned int lines, unsigned int cols);
     void setName(string name);
     void includePost(Post post);
     void includePortal(Portal portal);
-    vector<unsigned int> getDimensions();
-    vector<Post> getPosts();
-    vector<Portal> getPortals();
-
+    vector<unsigned int> getDimensions() const;
+    vector<Post> getPosts() const;
+    vector<Portal> getPortals() const;
 
     private:
     unsigned int lines;

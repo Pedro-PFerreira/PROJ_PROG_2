@@ -2,13 +2,16 @@
 
 #include <iostream>
 #include <vector>
+#include <set>
 #include <iostream>
 #include <limits>
 #include <ctime>
+
 #include "Show_Menu.cpp"
 #include "Maze.cpp"
 #include "Game.cpp"
 #include "Player.cpp"
+#include "Robot.cpp"
 
 using namespace std;
 
@@ -32,10 +35,9 @@ int main()
         time1 = time(NULL);
         while (!game.end())
         {   
-            game.printMaze();
             game.player_moves();
+            game.printMaze();
         }
-        game.printMaze();
         time2 = time(NULL);
 
         if (game.isAlive())
@@ -46,7 +48,7 @@ int main()
 
         else
         {
-            cout << "You lost!";
+            cout << "You lost!" << endl;
         }
 
         char ans;

@@ -1,10 +1,7 @@
 //Grupo
-
 // Methods of the class Player.
-#include "Player.hpp"
-#include <vector>
 
-using namespace std;
+#include "Player.hpp"
 
 Player::Player() /** This method is the constructor of the class. **/
 {
@@ -36,7 +33,7 @@ void Player::changeCord(unsigned int x, unsigned int y) /** This method modifies
     this -> y = y;
 }
 
-vector<unsigned int> Player::getCord() /** This method returns a vector which contains the current corrdinates of the player. **/
+vector<unsigned int> Player::getCord() const /** This method returns a vector which contains the current corrdinates of the player. **/
 {
     vector<unsigned int> coord = {};
     coord.push_back(x);
@@ -44,7 +41,7 @@ vector<unsigned int> Player::getCord() /** This method returns a vector which co
     return coord;
 }
 
-char Player::getStatus() /** This method returns the current status player. **/
+char Player::getStatus() const /** This method returns the current status player. **/
 {
     return status;
 }
@@ -54,7 +51,7 @@ void Player::changeWin() /** This method turns the flag @param win to true, in c
     win = true;
 }
 
-bool Player::Win() // This method verifies if the player has won the game, by returning the value @param win: it returns true if so, otherwise it returns false.
+bool Player::Win() const // This method verifies if the player has won the game, by returning the value @param win: it returns true if so, otherwise it returns false.
 {
     return win;
 }

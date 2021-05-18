@@ -1,9 +1,6 @@
 //Grupo
 
 #include "Post.hpp"
-#include <vector>
-
-using namespace std;
 
 Post :: Post()
 {
@@ -23,7 +20,7 @@ void Post::set_Status(char status)
     this -> status = status;
 }
 
-vector <unsigned int> Post::getCord()
+vector <unsigned int> Post::getCord() const
 {
     vector <unsigned int> cord = {};
     cord.push_back(x);
@@ -37,7 +34,7 @@ void Post::change_Status(char status)
         status = '+';
 }
 
-char Post::get_Status()
+char Post::get_Status() const
 {
     return status;
 }

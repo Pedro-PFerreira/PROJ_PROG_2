@@ -3,21 +3,17 @@
 #ifndef ROBOT_DEFINED
 #define ROBOT_DEFINED
 
-
-#include <vector>
-using namespace std;
-
 class Robot 
 {
     public:
     Robot();
     void setCord (unsigned int x, unsigned int y);
+    void changeCord(unsigned int x, unsigned int y);
     void setStatus(char status);
     void setID(unsigned int id);
     void changeStatus(char s);
-    char getStatus();
-    unsigned int getID();
-    void changeCord(unsigned int x, unsigned int y);
+    char getStatus() const;
+    unsigned int getID() const;
     vector<unsigned int> getCord();
 
     private:

@@ -1,17 +1,12 @@
 // Grupo
 
-// Game's method
 #include "Game.hpp"
-#include "Robot.cpp"
+#include "Robot.hpp"
 #include "Post.hpp"
-#include <iostream>
-using namespace std;
 
 Game::Game() /** This is the contructor of the class Game() **/
 {
-    maze = maze;
-    player = player;
-    robots = robots;
+    robots = {};
 }
 
 void Game::printMaze() /** This method shows on the screen the maze selected by the user **/
@@ -94,9 +89,10 @@ void Game::createObjects(int number_maze) /** This method creates the various el
             i++;
         }
     }
+    printMaze();
 }
 
-bool Game::end() /** This method verifies if the has already ended, by checking if al the robots are destroyed (that is, each robot's status is represented by an 'r'); iit checks if the player is alive, thanks to the isAlive() function or if the players has won the game. **/
+bool Game::end() const /** This method verifies if the has already ended, by checking if al the robots are destroyed (that is, each robot's status is represented by an 'r'); iit checks if the player is alive, thanks to the isAlive() function or if the players has won the game. **/
 {
     bool all_dead = true;
     for (auto robot : robots)
@@ -106,7 +102,7 @@ bool Game::end() /** This method verifies if the has already ended, by checking 
     return all_dead || !isAlive() || player.Win();
 }
 
-bool Game::valid_button(char command) /** This method verifies if the user has inputed a valid button, that is, if the character typed by him/her corresponds to one of the characters in @param allowed_commands. **/
+bool Game::valid_button(char command) const /** This method verifies if the user has inputed a valid button, that is, if the character typed by him/her corresponds to one of the characters in @param allowed_commands. **/
 {
     vector<char> allowed_commands = {'q', 'w', 'e', 'd', 'c', 'x', 'z', 'a', 's'};
     for (char attemp : allowed_commands)
@@ -117,12 +113,12 @@ bool Game::valid_button(char command) /** This method verifies if the user has i
     return false;
 }
 
-bool Game::isAlive() /** This method veriifies if the player is still alive, in other words, it checks if the status of the player correponds to a 'H'. It returns true if so, otherwise, it returns false. **/
+bool Game::isAlive() const /** This method veriifies if the player is still alive, in other words, it checks if the status of the player correponds to a 'H'. It returns true if so, otherwise, it returns false. **/
 {
     return player.getStatus() == 'H';
 }
 
-char Game::nextChar(int x, int y)
+char Game::nextChar(int x, int y) const 
 {
     vector<Portal> portals = maze.getPortals();
     for (auto portal : portals)
@@ -166,6 +162,7 @@ int Game::player_collide(char button) /** This method verifies if the player col
         y++;
 
     char next_char = nextChar(x, y);
+
     if (next_char == ' ' || next_char == 'H')
         return 0;
     if (next_char == '+' || next_char == 'r')
@@ -296,19 +293,23 @@ void Game::robot_moves() /** This method assures the movement of the robots, acc
             {
                 new_y--;
             }
-
             else if (dist_h == 0 && dist_v < 0)
+            {
                 new_x++;
+            }
             else if (dist_h < 0 && dist_v == 0)
+            {
                 new_y++;
+            }
             else if (dist_h == 0 && dist_v > 0)
+            {
                 new_x--;
+            }
             else if (dist_h > 0 && dist_v < 0)
             {
                 new_y--;
                 new_x++;
             }
-
             else if (dist_h < 0 && dist_v < 0)
             {
                 new_x++;
@@ -326,15 +327,16 @@ void Game::robot_moves() /** This method assures the movement of the robots, acc
             }
 
             if (nextChar(new_x, new_y) == ' ')
+            {
                 robot.changeCord(new_x,new_y);            
-
+            }
             else if (nextChar(new_x, new_y) == '*') 
+            {
                 robot.changeStatus('r');
-
+            }
             else if (nextChar(new_x, new_y) == 'H')
             {         
                 player.changeStatus();
- 
             }
             else
             {

@@ -1,13 +1,11 @@
 //Grupo
 
 #include "Portal.hpp"
-#include <vector>
-using namespace std;
 
 Portal::Portal()
 {
-    x = x;
-    y = y;
+    x = 0;
+    y = 0;
 }
 
 void Portal::setCord (unsigned int x, unsigned int y)
@@ -16,7 +14,7 @@ void Portal::setCord (unsigned int x, unsigned int y)
     this -> y = y;
 }
 
-vector<unsigned int> Portal::getCoords() 
+vector<unsigned int> Portal::getCoords() const
 {
     vector<unsigned int> coords;
     coords.push_back(x);

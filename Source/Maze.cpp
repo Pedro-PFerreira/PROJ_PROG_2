@@ -1,19 +1,16 @@
 //Grupo
 
-#include <sstream>
-#include <fstream>
-#include <vector>
-#include <string>
 #include "Maze.hpp"
 #include "Post.cpp"
 #include "Portal.cpp"
 
 Maze::Maze()
 {
-    lines = lines;
-    cols = cols;
-    posts = posts;
-    portals = portals;
+    lines = 0;
+    cols = 0;
+    posts = {};
+    portals = {};
+    name = "";
 }
 
 void Maze::setDimension(unsigned int lines, unsigned int cols)
@@ -27,7 +24,7 @@ void Maze::setName(string name)
     this -> name = name;
 }
 
-vector<unsigned int> Maze::getDimensions() 
+vector<unsigned int> Maze::getDimensions() const 
 {
     vector<unsigned int> dimensions = {};
     dimensions.push_back(lines);
@@ -45,12 +42,12 @@ void Maze::includePortal(Portal portal)
     portals.push_back(portal);
 }
 
-vector<Post> Maze::getPosts()
+vector<Post> Maze::getPosts() const
 {
     return posts;
 }
 
-vector<Portal> Maze::getPortals()
+vector<Portal> Maze::getPortals() const
 {
     return portals;
 }
