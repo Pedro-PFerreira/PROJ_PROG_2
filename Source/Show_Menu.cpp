@@ -40,7 +40,7 @@ void Menu(bool &want_play, int &number_maze) /** This function secures the funct
 
         exit(0);
 
-    while (cin.peek() != '\n' || cin.fail() || button < 0 || button > 3)
+    while (cin.fail() || cin.peek() != '\n' || button < 0 || button > 3)
     {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
