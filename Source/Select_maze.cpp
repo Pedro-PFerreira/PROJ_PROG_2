@@ -22,27 +22,36 @@ bool isFile(int number_maze)
 
 void choose_maze(bool &want_play, int &number_maze)
 {
-    number_maze = -1;
+    bool flag = true;
     string file_name;
     cout << "Please the number of the maze (type 0 to go back):" << endl;
-
     cin >> number_maze;
     if (cin.eof())
         exit(0);
-    while (number_maze == -1)
-    {
-        if (cin.fail() || cin.peek() != '\n' || number_maze < 0 || number_maze > 99 || !isFile(number_maze))
-        {   
-            number_maze = -1;
+    while (flag)
+    {   if (cin.eof())
+            exit(0);
+        if (cin.fail() || cin.peek() != '\n' || number_maze < 0 || number_maze > 99)
+        {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cerr << "Maze not found. Please type a valid one." << endl;
             cout << "Please input the number of the maze (type 0 to go back):" << endl;
             cin >> number_maze;
-    
-            if (cin.eof())
-                exit(0);
         }
+        else if (number_maze == 0)
+            break;
+
+        else if (!isFile(number_maze))
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cerr << "Maze not found. Please type a valid one." << endl;
+            cout << "Please input the number of the maze (type 0 to go back):" << endl;
+            cin >> number_maze;
+        }
+        else
+            flag = false;
     }
     if (number_maze == 0)
     {
