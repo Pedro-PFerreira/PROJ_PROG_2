@@ -1,13 +1,15 @@
 //Grupo
 
 #include "Robot.hpp"
+unsigned int Robot::numRobots = 0;
 
 Robot::Robot()
 {
     x = 0;
     y = 0;
     status = 'R';
-    id = 1;
+    numRobots++;
+    id = numRobots;
 }
 
 void Robot::setCord (unsigned int x, unsigned int y)
@@ -19,11 +21,6 @@ void Robot::setCord (unsigned int x, unsigned int y)
 void Robot::setStatus(char status) 
 {
     this -> status = status;
-}
-
-void Robot::setID(unsigned int id)
-{
-    this -> id = id;
 }
 
 void Robot::changeStatus(char s) 
