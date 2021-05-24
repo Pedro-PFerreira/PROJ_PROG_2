@@ -2,25 +2,25 @@
 
 #include "Post.hpp"
 
-Post :: Post()
+Post :: Post() /** This is the contructor of the class Post() **/
 {
     x = 0;
     y = 0;
     status = '*';
 }
 
-void Post::setCord(unsigned int x, unsigned int y)
+void Post::setCord(unsigned int x, unsigned int y) /** This method will define the post's coordinates on the maze, according the @param x and @param y. **/
 {
     this -> x = x;
     this -> y = y;
 }
 
-void Post::set_Status(char status)
+void Post::set_Status(char status) /** This method will define the post's status, according to @param status ('*' or '+') **/
 {
     this -> status = status;
 }
 
-vector <unsigned int> Post::getCord() const
+vector <unsigned int> Post::getCord() const /** This method returns the current coordinates @param x and @param y of the post, by returning a vector @param cord. **/
 {
     vector <unsigned int> cord = {};
     cord.push_back(x);
@@ -28,13 +28,13 @@ vector <unsigned int> Post::getCord() const
     return cord;
 }
 
-void Post::change_Status()
+void Post::change_Status() /** This method changes the post's status to '+'. This method will be called when the player or a robot collide with an electrified fence. **/
 {
     if (status == '*')
         status = '+';
 }
 
-char Post::get_Status() const
+char Post::get_Status() const /** This method returns the current status of the post. **/
 {
     return status;
 }

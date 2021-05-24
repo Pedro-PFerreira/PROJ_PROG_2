@@ -15,12 +15,12 @@
 
 using namespace std;
 
-int main()
+int main() //The main function assures the execution of the game.
 {
     srand(time(NULL));
-    bool want_play = false;
-    bool play_again = true;
-    int number_maze, time1, time2;
+    bool want_play = false; //This flag indicates if the user wants to play- it becomes true when he/she chooses a maze.
+    bool play_again = true; //This flag indicates if the user wants to play again- it becomes true when the user types 'y' or 'Y' at the end of the game (lines 55-80).
+    int number_maze, time1, time2; /** @param number_maze - number of the chosen maze; @param time1- initial time, starts with zero; @param time2 - final time, that is, time needed to complete the maze successfully**/
 
     while (play_again)
     {
@@ -40,7 +40,7 @@ int main()
         }
         time2 = time(NULL);
 
-        if (game.isAlive())
+        if (game.isAlive()) //win condition
         {
             cout << "Congratulations, you won!" << endl;
             write_file(time2 - time1, number_maze);
@@ -52,7 +52,7 @@ int main()
         }
 
         char ans;
-        cout << "Do you want to play again (y/n)?" << endl;
+        cout << "Do you want to play again (y/n)?" << endl; // The player can play again if he/she wants and, if so, the main menu will be shown again.
 
         cin >> ans;
         if (cin.eof())

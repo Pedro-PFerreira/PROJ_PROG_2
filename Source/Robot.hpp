@@ -3,7 +3,7 @@
 #ifndef ROBOT_DEFINED
 #define ROBOT_DEFINED
 
-class Robot 
+class Robot // The class Robot ensures the good functionality of the player during the game. In the "Player.cpp" explains how each method works.
 {
     public:
     Robot();

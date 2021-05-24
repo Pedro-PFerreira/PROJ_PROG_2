@@ -1,15 +1,11 @@
 Player          - Time
 ----------------------
 Jaime Villate   - 3
-Ok              - 3
-Tauas 2         - 3
-(im)perfection  - 4
 Antonio Araujo  - 4
 Pedro Ferreira  - 5
 Maria Leal      - 6
 Fabio Sa        - 7
 Jorge Silva     - 7
-Tauas           - 8
 To Ferreira     - 9
 Luis Portela    - 11
 Ines Gaspar     - 14

@@ -21,7 +21,7 @@ void Maze::setDimension(unsigned int lines, unsigned int cols) /** This method d
     this -> cols = cols;
 }
 
-void Maze::setName(string name) /** This method defines the name of the maze by setting it the name of the chosen maze by the user ("MAZE_01.TXT" for example.) **/
+void Maze::setName(string name) /** This method defines the name of the maze by setting it the name of the chosen maze by the user ("MAZE_01.TXT" for example). **/
 {
     this -> name = name;
 }
@@ -34,22 +34,22 @@ vector<unsigned int> Maze::getDimensions() const /** This method returns the dim
     return dimensions;
 }
 
-void Maze::includePost(Post post) /** This method receives adds a new post to the vector which contains all posts of the maze **/
+void Maze::includePost(Post post) /** This method receives adds a new post to the vector which contains all posts of the maze. **/
 {
     posts.push_back(post);
 }
 
-void Maze::includePortal(Portal portal)
+void Maze::includePortal(Portal portal) /** This method receives adds a new post to the vector which contains all portals of the maze. **/
 {
     portals.push_back(portal);
 }
 
-vector<Post> Maze::getPosts() const
+vector<Post> Maze::getPosts() const /** This method returns a vector @param posts, which contains all the posts of the maze. **/
 {
     return posts;
 }
 
-void Maze::changePost(int x, int y)
+void Maze::changePost(int x, int y) /** This method changes the status of the post which coordinates are @param x and @param y of the vector @param posts**/
 {
     for (auto &post: posts)
     {
@@ -59,7 +59,7 @@ void Maze::changePost(int x, int y)
         }
     }
 }
-vector<Portal> Maze::getPortals() const
+vector<Portal> Maze::getPortals() const/** This method returns a vector @param portals, which contains all the porals of the maze. **/
 {
     return portals;
 }

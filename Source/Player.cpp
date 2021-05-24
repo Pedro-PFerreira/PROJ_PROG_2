@@ -1,9 +1,9 @@
 //Grupo
-// Methods of the class Player.
+// Player's classes.
 
 #include "Player.hpp"
 
-Player::Player() /** This method is the constructor of the class. **/
+Player::Player() /** This method is the constructor of the class Player. **/
 {
     x = x;
     y = y;
@@ -33,7 +33,7 @@ void Player::changeCord(unsigned int x, unsigned int y) /** This method modifies
     this -> y = y;
 }
 
-vector<unsigned int> Player::getCord() const /** This method returns a vector which contains the current corrdinates of the player. **/
+vector<unsigned int> Player::getCord() const /** This method returns a vector @param coord which contains the current coordinates of the player. **/
 {
     vector<unsigned int> coord = {};
     coord.push_back(x);
@@ -41,7 +41,7 @@ vector<unsigned int> Player::getCord() const /** This method returns a vector wh
     return coord;
 }
 
-char Player::getStatus() const /** This method returns the current status player. **/
+char Player::getStatus() const /** This method returns the current status of the player. **/
 {
     return status;
 }

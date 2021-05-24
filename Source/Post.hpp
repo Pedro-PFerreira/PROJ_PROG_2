@@ -3,7 +3,7 @@
 #ifndef POST_DEFINED
 #define POST_DEFINED
 
-class Post
+class Post // The class Post ensures the creation of the maze's posts. In the "Player.cpp" explains how each method works.
 {
     public:
     Post();
