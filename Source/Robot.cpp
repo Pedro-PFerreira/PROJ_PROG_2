@@ -2,13 +2,15 @@
 
 //Robot's classes.
 #include "Robot.hpp"
+unsigned int Robot::numRobots = 0;
 
 Robot::Robot() /** This method is the constructor of the class Robot. **/
 {
     x = 0;
     y = 0;
     status = 'R';
-    id = 1;
+    numRobots++;
+    id = numRobots;
 }
 
 void Robot::setCord (unsigned int x, unsigned int y) /** This method will define the robot's coordinates on the maze, according the @param x and @param y. **/
