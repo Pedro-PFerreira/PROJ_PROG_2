@@ -344,6 +344,10 @@ void Game::robot_moves() /** This method assures the movement of the robots, acc
                 robot.changeCord(new_x,new_y);
                 robot.changeStatus('r');
             }
+            else if (nextChar(new_x, new_y) == 'O')
+            {
+                robot.changeCord(new_x,new_y);
+            }
             else
             {
                 robot.changeCord(new_x,new_y);
