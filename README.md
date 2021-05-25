@@ -5,8 +5,6 @@
 - Fábio Araújo de Sá (up202007658)
 - Pedro Pereira Ferreira (up202004986)
 
-<br>
-
 ## Additional Specifications:
 
 - Showing the winners: We have decided that the program will show all the winners of every maze (if the maze has at least a winner), and the time spent by each on as well;
@@ -18,8 +16,6 @@
 - Records: We have devided to insert the name of the winner in case it does not exist in the Record's file of the corresponding maze or it exists but the player has completed the maze in a better time, which means it has a new record associated to that name. If the time spent by the user to complete the name is higher than the time on the file, nothing is modified on the Record's file; however, the user is informed that a better time already exists;
 
 - Rewrite the Record's file: we have decided to use sets (set <int,string> records) in order to allocate temporarily the winners list to be rewritten, so that it could automatically remove the repeated winners lines; those lines are sorted by ascending order of the times spent to complete the maze, and are sorted lexicographically in case two or more winner have the same time. This also results in a better efficiency on file's load and store of .txt files to the STL conatiner;
-
-<br>
 
 ## Program Development State:
 
@@ -36,8 +32,6 @@
 - [X] Using of flags: Comparing to the previous project, we use "flags" (boolean variable that change its value according to certain situations) to prevent form the usage of the recursion: for example, if the user selects a valid maze, the flag want_play, which value is initially false, becomes true, and it allows to start the game it self;
 
 - [X] Play again: Thanks to the using of the flags, we modified the program so that the user could play again without finishing the program's execution- at the end of the game, the user is asked if he/she wants to play again and according to the character inputed ('y'/'Y' if he/she wants to play again or 'n'/'N' in negative case) and the main menu is shown or not, in the respective cases;
-
-<br>
 
 ## Main Dificults
 
