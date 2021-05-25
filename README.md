@@ -19,7 +19,7 @@
 
 ## Program Development State:
 
-- [X] All the objectives of this project were completed:
+All the objectives of this project were completed:
 
 - [X] Separate compilation: This objective was achieved since the all the class structures are written in .hpp files and the its methods are written in .cpp files, in addition of that the menu, the selection of the maze and the winners function are also in .cpp files;
 
