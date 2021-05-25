@@ -1,4 +1,4 @@
-//Grupo
+//T04_G04
 
 #include <iostream>
 #include <limits>
@@ -26,7 +26,7 @@ void ShowRules() /** This function shows on the screen the content of the file R
     file.close();
 }
 
-void Menu(bool &want_play, int &number_maze) /** This function secures the functionality of the menu, according to the commands inputed by the user: if he/she types 0, the game finishes its execution, if he/she types 1, The game's rules are shown on the screen;if it was typed 2, the player will choose the maze to play, if is was inputed 3, the winners of each maze will be shown on the screen. **/
+void Menu(bool &want_play, int &number_maze) /** This function secures the functionality of the menu, according to the commands inputed by the user: if he/she types 0, the game finishes its execution, if he/she types 1, the game's rules are shown on the screen; if it was typed 2, the player will choose the maze to play, if is was inputed 3, the winners of each maze will be shown on the screen. **/
 {
     int button;
 

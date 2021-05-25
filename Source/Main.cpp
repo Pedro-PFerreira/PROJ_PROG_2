@@ -1,4 +1,4 @@
-//Grupo
+//T04_G04
 
 #include <iostream>
 #include <vector>
@@ -18,9 +18,9 @@ using namespace std;
 int main() //The main function assures the execution of the game.
 {
     srand(time(NULL));
-    bool want_play = false; //This flag indicates if the user wants to play- it becomes true when he/she chooses a maze.
-    bool play_again = true; //This flag indicates if the user wants to play again- it becomes true when the user types 'y' or 'Y' at the end of the game (lines 55-80).
-    int number_maze, time1, time2; /** @param number_maze - number of the chosen maze; @param time1- initial time, starts with zero; @param time2 - final time, that is, time needed to complete the maze successfully**/
+    bool want_play = false; //This flag indicates if the user wants to play - it becomes true when he/she chooses a maze.
+    bool play_again = true; //This flag indicates if the user wants to play again - it becomes true when the user types 'y' or 'Y' at the end of the game (lines 55-80).
+    int number_maze, time1, time2; /** @param number_maze - number of the chosen maze; @param time1- initial time; @param time2 - final time **/
 
     while (play_again)
     {

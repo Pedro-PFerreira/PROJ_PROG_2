@@ -1,6 +1,4 @@
-//Grupo
-
-//Portal's classes.
+//T04_G04
 
 #include "Portal.hpp"
 

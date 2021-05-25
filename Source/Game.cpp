@@ -1,10 +1,10 @@
-// Grupo
+//T04_G04
 
 #include "Game.hpp"
 #include "Robot.hpp"
 #include "Post.hpp"
 
-Game::Game() /** This is the contructor of the class Game() **/
+Game::Game() /** This is the constructor of the class Game **/
 {
     robots = {};
 }
@@ -24,7 +24,7 @@ void Game::printMaze() /** This method shows on the screen the maze selected by 
     }
 }
 
-void Game::createObjects(int number_maze) /** This method creates the various elements of the game (such as posts, the robots and the player) by their corresponding symbol: 'h'/'H' represents the player, 'R'/'r' represents the robots and the '*' / '+' symols correspond to the fences. **/
+void Game::createObjects(int number_maze) /** This method creates the various elements of the game (such as posts, portals, the robots and the player) by their corresponding symbol: 'h'/'H' represents the player, 'O' represents the portal, 'R'/'r' represents the robots and the '*' / '+' symbols correspond to the fences. **/
 {
     string name_maze = number_maze < 10 && number_maze > 0 ? "MAZE_0" + to_string(number_maze) + ".TXT" : "MAZE_" + to_string(number_maze) + ".TXT";
     maze.setName(name_maze);
@@ -92,7 +92,7 @@ void Game::createObjects(int number_maze) /** This method creates the various el
     printMaze();
 }
 
-bool Game::end() const /** This method verifies if the has already ended, by checking if al the robots are destroyed (that is, each robot's status is represented by an 'r'); iit checks if the player is alive, thanks to the isAlive() function or if the players has won the game. **/
+bool Game::end() const /** This method verifies if the has already ended, by checking if all the robots are destroyed (that is, each robot's status is represented by an 'r'); it checks if the player is alive, thanks to the isAlive() function or if the players has won the game. **/
 {
     bool all_dead = true;
     for (auto robot : robots)
@@ -113,12 +113,12 @@ bool Game::valid_button(char command) const /** This method verifies if the user
     return false;
 }
 
-bool Game::isAlive() const /** This method veriifies if the player is still alive, in other words, it checks if the status of the player correponds to a 'H'. It returns true if so, otherwise, it returns false. **/
+bool Game::isAlive() const /** This method verifies if the player is still alive, in other words, it checks if the status of the player correponds to a 'H'. It returns true if so, otherwise, it returns false. **/
 {
     return player.getStatus() == 'H';
 }
 
-char Game::nextChar(int x, int y) const 
+char Game::nextChar(int x, int y) const /** This method returns the status/character of the object which coordinates are @param x and @param y of then maze **/
 {
     vector<Portal> portals = maze.getPortals();
     vector<Post> posts = maze.getPosts();
@@ -179,7 +179,7 @@ int Game::player_collide(char button) /** This method verifies if the player col
 
 }
 
-void Game::player_moves() /** This method assures the the movement of the player, according to the letter typed by the user. The validaty is assured by the player_colllide() function. **/
+void Game::player_moves() /** This method assures the movement of the player, according to the letter typed by the user. The validaty is assured by the player_colllide() function. **/
 {
     char button;
 

@@ -1,9 +1,8 @@
-//Grupo
+//T04_G04
 
 #include <iostream>
 #include <string>
 #include <fstream>
-
 using namespace std;
 
 bool isFile(int number_maze) // This function validates if the maze chosen by the user is exist or not- it return true if so, othwerwise it returns false.

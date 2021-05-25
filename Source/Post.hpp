@@ -1,9 +1,9 @@
-//Grupo
+//T04_G04
 
 #ifndef POST_DEFINED
 #define POST_DEFINED
 
-class Post // The class Post ensures the creation of the maze's posts. In the "Player.cpp" explains how each method works.
+class Post // The class Post ensures the creation of the maze's posts. In the "Post.cpp" explains how each method works.
 {
     public:
     Post();

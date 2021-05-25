@@ -1,4 +1,4 @@
-//Grupo
+//T04_G04
 
 #include <iostream>
 #include <string>
@@ -128,7 +128,7 @@ void write_file(int time, int num_maze) /** This function writes to the record's
         file.close();
     }
 
-    else // If the Record's file of the maze played hasn't been created yet, it will be creted a new file, with the corresponding name of the maze, writing to it the header of the file, the player's name and also thw time spent to complete the maze successfully.
+    else // If the Record's file of the maze played hasn't been created yet, it will be creted a new file, with the corresponding name of the maze, writing to it the header of the file, the player's name and also the time spent to complete the maze successfully.
     {
 		string header = "Player          - Time\n----------------------";
 		ofstream file;

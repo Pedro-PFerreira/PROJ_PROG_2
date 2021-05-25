@@ -1,4 +1,4 @@
-//Grupo
+//T04_G04
 
 #ifndef MAZE_DEFINED
 #define MAZE_DEFINED

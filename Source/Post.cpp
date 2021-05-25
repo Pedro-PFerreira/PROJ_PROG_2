@@ -1,8 +1,8 @@
-//Grupo
+//T04_G04
 
 #include "Post.hpp"
 
-Post :: Post() /** This is the contructor of the class Post() **/
+Post :: Post() /** This is the contructor of the class Post **/
 {
     x = 0;
     y = 0;

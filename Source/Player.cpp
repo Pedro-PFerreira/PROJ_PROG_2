@@ -1,5 +1,4 @@
-//Grupo
-// Player's classes.
+//T04_G04
 
 #include "Player.hpp"
 
@@ -22,7 +21,7 @@ void Player::setStatus(char status) /** This method will define the player's sta
     this -> status = status;
 }
 
-void Player::changeStatus() /** This method chnages the player's status to 'h'. This method will be called when the player collide with a live robot or an electrified fence. **/
+void Player::changeStatus() /** This method changes the player's status to 'h'. This method will be called when the player collide with a live robot or an electrified fence. **/
 {
     status = 'h';
 }

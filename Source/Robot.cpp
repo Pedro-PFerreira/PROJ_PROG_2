@@ -1,8 +1,7 @@
-//Grupo
+//T04_G04
 
-//Robot's classes.
 #include "Robot.hpp"
-unsigned int Robot::numRobots = 0;
+unsigned int Robot::numRobots = 0; /** Initialization of the static member of the Robot class, which is responsible for making an id automatically **/
 
 Robot::Robot() /** This method is the constructor of the class Robot. **/
 {

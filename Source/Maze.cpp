@@ -1,6 +1,4 @@
-//Grupo
-
-//Maze's classes.
+//T04_G04
 
 #include "Maze.hpp"
 #include "Post.cpp"
@@ -34,12 +32,12 @@ vector<unsigned int> Maze::getDimensions() const /** This method returns the dim
     return dimensions;
 }
 
-void Maze::includePost(Post post) /** This method receives adds a new post to the vector which contains all posts of the maze. **/
+void Maze::includePost(Post post) /** This method adds a new post to the vector which contains all posts of the maze. **/
 {
     posts.push_back(post);
 }
 
-void Maze::includePortal(Portal portal) /** This method receives adds a new post to the vector which contains all portals of the maze. **/
+void Maze::includePortal(Portal portal) /** This method adds a new post to the vector which contains all portals of the maze. **/
 {
     portals.push_back(portal);
 }
@@ -49,7 +47,7 @@ vector<Post> Maze::getPosts() const /** This method returns a vector @param post
     return posts;
 }
 
-void Maze::changePost(int x, int y) /** This method changes the status of the post which coordinates are @param x and @param y of the vector @param posts**/
+void Maze::changePost(int x, int y) /** This method changes the status of the post which coordinates are @param x and @param y of the vector @param posts **/
 {
     for (auto &post: posts)
     {
@@ -59,7 +57,7 @@ void Maze::changePost(int x, int y) /** This method changes the status of the po
         }
     }
 }
-vector<Portal> Maze::getPortals() const/** This method returns a vector @param portals, which contains all the porals of the maze. **/
+vector<Portal> Maze::getPortals() const /** This method returns a vector @param portals, which contains all the portals of the maze. **/
 {
     return portals;
 }
