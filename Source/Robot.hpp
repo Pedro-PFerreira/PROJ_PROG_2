@@ -7,19 +7,19 @@ class Robot // The class Robot ensures the good functionality of the player duri
 {
     public:
     Robot();
-    void setCord (unsigned int x, unsigned int y);
-    void changeCord(unsigned int x, unsigned int y);
+    void setCord (int x, int y);
+    void changeCord(int x, int y);
     void setStatus(char status);
     void changeStatus(char s);
     char getStatus() const;
-    unsigned int getID() const;
-    vector<unsigned int > getCord();
+    int getID() const;
+    vector<int > getCord();
 
     private:
-    unsigned int x;
-    unsigned int y;
-    unsigned int id;
-    static unsigned int numRobots;
+    int x;
+    int y;
+    int id;
+    static int numRobots;
     char status;
 };
 

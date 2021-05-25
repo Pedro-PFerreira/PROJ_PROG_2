@@ -7,16 +7,16 @@ class Post // The class Post ensures the creation of the maze's posts. In the "P
 {
     public:
     Post();
-    void setCord(unsigned int x, unsigned int y);
+    void setCord(int x, int y);
     void set_Status(char status);
     void change_Status();
     char get_Status() const;
-    vector <unsigned int> getCord() const;
+    vector <int> getCord() const;
 
     private:
     char status;
-    unsigned int x;
-    unsigned int y;
+    int x;
+    int y;
 };
 
 #endif

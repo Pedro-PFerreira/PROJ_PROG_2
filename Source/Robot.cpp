@@ -1,7 +1,7 @@
 //T04_G04
 
 #include "Robot.hpp"
-unsigned int Robot::numRobots = 0; /** Initialization of the static member of the Robot class, which is responsible for making an id automatically **/
+int Robot::numRobots = 0; /** Initialization of the static member of the Robot class, which is responsible for making an id automatically **/
 
 Robot::Robot() /** This method is the constructor of the class Robot. **/
 {
@@ -12,7 +12,7 @@ Robot::Robot() /** This method is the constructor of the class Robot. **/
     id = numRobots;
 }
 
-void Robot::setCord (unsigned int x, unsigned int y) /** This method will define the robot's coordinates on the maze, according the @param x and @param y. **/
+void Robot::setCord (int x, int y) /** This method will define the robot's coordinates on the maze, according the @param x and @param y. **/
 {
     this -> x = x;
     this -> y = y;
@@ -28,15 +28,15 @@ void Robot::changeStatus(char s) /** This method chnages the robot's status to '
     status = s;
 }
 
-void Robot::changeCord(unsigned int x, unsigned int y) /** This method modifies the robot's coordinates, by replacing the current values to the values of @param x and @param y. **/
+void Robot::changeCord(int x, int y) /** This method modifies the robot's coordinates, by replacing the current values to the values of @param x and @param y. **/
 {
     this -> x = x;
     this -> y = y;
 }
 
-vector<unsigned int> Robot::getCord() /** This method returns a vector @param coord which contains the current coordinates of the robot. **/
+vector<int> Robot::getCord() /** This method returns a vector @param coord which contains the current coordinates of the robot. **/
 {
-    vector<unsigned int> coord = {};
+    vector<int> coord = {};
     coord.push_back(x);
     coord.push_back(y);
     return coord;
@@ -47,7 +47,7 @@ char Robot::getStatus() const /** This method returns the current status of the 
     return status;
 }
 
-unsigned int Robot::getID() const /** This method returns the ID number of the robot. **/
+int Robot::getID() const /** This method returns the ID number of the robot. **/
 {
     return id;
 }

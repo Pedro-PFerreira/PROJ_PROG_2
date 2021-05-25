@@ -13,7 +13,6 @@ typedef pair<int, string> record;
 
 void Show_winners() /** This function shows all the winners of each maze on console, in case if they exist. If so, shows by ascending order the winners with the best times, otherwise it shows "Empty list." on the screen **/
 {
-    char command;
     bool any_winner = false;
     string winners_file;
     for (int i = 1; i < 100; i++)
@@ -88,7 +87,7 @@ void write_file(int time, int num_maze) /** This function writes to the record's
             getline(file, current_line);
             winner_name = current_line.substr(0, 15);
             string aux = "";
-            for (int i = current_line.find('-') + 1; i < current_line.size() ; i++ )
+            for (long long unsigned int i = current_line.find('-') + 1; i < current_line.size() ; i++ )
             {
                 aux += current_line[i];
             }

@@ -34,7 +34,8 @@ void Game::createObjects(int number_maze) /** This method creates the various el
     if (file.good()) 
     {
         string current_line;
-        unsigned int lines, cols;
+        
+        int lines, cols;
         char x;
         
         getline(file, current_line);
@@ -147,8 +148,8 @@ char Game::nextChar(int x, int y) const /** This method returns the status/chara
 int Game::player_collide(char button) /** This method verifies if the player collides with other object (with a fence or a robot), returning 0 if it is a valid one, 1 if he/she collided with a non-electrified fence or a stuck robot, 2 if he has collided with a live robot or an electrified, meaning that he/she has lost the game, 3 if he/she finds an exit to escape the maze ('O').**/
 {
     button = tolower(button);
-    unsigned int x = player.getCord()[0];
-    unsigned int y = player.getCord()[1];
+    int x = player.getCord()[0];
+    int y = player.getCord()[1];
 
     if (button == 'q' || button == 'w' || button == 'e')
         x--;

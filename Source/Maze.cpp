@@ -13,7 +13,7 @@ Maze::Maze() /** This is the constructor of the class Maze. **/
     name = "";
 }
 
-void Maze::setDimension(unsigned int lines, unsigned int cols) /** This method defines the dimensions of the maze by setting the values @param lines and @param cols as the number of lines and collumns of the maze, respectively. **/
+void Maze::setDimension(int lines, int cols) /** This method defines the dimensions of the maze by setting the values @param lines and @param cols as the number of lines and collumns of the maze, respectively. **/
 {
     this -> lines = lines;
     this -> cols = cols;
@@ -24,9 +24,9 @@ void Maze::setName(string name) /** This method defines the name of the maze by 
     this -> name = name;
 }
 
-vector<unsigned int> Maze::getDimensions() const /** This method returns the dimensions of the maze through a vector which elements are the number of the lines and collumns of the chosen maze, by its order. **/
+vector<int> Maze::getDimensions() const /** This method returns the dimensions of the maze through a vector which elements are the number of the lines and collumns of the chosen maze, by its order. **/
 {
-    vector<unsigned int> dimensions = {};
+    vector<int> dimensions = {};
     dimensions.push_back(lines);
     dimensions.push_back(cols);
     return dimensions;

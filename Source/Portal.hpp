@@ -7,8 +7,8 @@ class Portal // The class Post ensures the creation of the maze's portals. In th
 {
     public:
     Portal();
-    void setCord (unsigned int x, unsigned int y);
-    vector<unsigned int> getCoords() const;
+    void setCord (int x, int y);
+    vector<int> getCoords() const;
 
     private:
     unsigned int x;

@@ -4,13 +4,13 @@
 
 Player::Player() /** This method is the constructor of the class Player. **/
 {
-    x = x;
-    y = y;
-    status = status;
+    x = 0;
+    y = 0;
+    status = 'H';
     win = false;
 }
 
-void Player::setCord (unsigned int x, unsigned int y) /** This method will define the player's coordinates on the maze, according the @param x and @param y. **/
+void Player::setCord (int x, int y) /** This method will define the player's coordinates on the maze, according the @param x and @param y. **/
 {
     this -> x = x;
     this -> y = y;
@@ -26,15 +26,15 @@ void Player::changeStatus() /** This method changes the player's status to 'h'. 
     status = 'h';
 }
 
-void Player::changeCord(unsigned int x, unsigned int y) /** This method modifies the player's coordinates, by replacing the current values to the values of @param x and @param y. **/
+void Player::changeCord(int x, int y) /** This method modifies the player's coordinates, by replacing the current values to the values of @param x and @param y. **/
 {
     this -> x = x;
     this -> y = y;
 }
 
-vector<unsigned int> Player::getCord() const /** This method returns a vector @param coord which contains the current coordinates of the player. **/
+vector<int> Player::getCord() const /** This method returns a vector @param coord which contains the current coordinates of the player. **/
 {
-    vector<unsigned int> coord = {};
+    vector<int> coord = {};
     coord.push_back(x);
     coord.push_back(y);
     return coord;

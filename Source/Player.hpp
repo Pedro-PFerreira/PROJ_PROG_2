@@ -9,18 +9,18 @@ class Player
 {
     public:
     Player();
-    void setCord (unsigned int x, unsigned int y);
-    void changeCord(unsigned int x, unsigned int y);
+    void setCord (int x, int y);
+    void changeCord(int x, int y);
     void setStatus(char status);
     void changeStatus();
     void changeWin();
     char getStatus() const;
     bool Win() const;
-    vector<unsigned int> getCord() const;
+    vector<int> getCord() const;
 
     private:
-    unsigned int x;
-    unsigned int y;
+    int x;
+    int y;
     char status;
     bool win;
 };

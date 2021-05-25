@@ -9,7 +9,7 @@ Post :: Post() /** This is the contructor of the class Post **/
     status = '*';
 }
 
-void Post::setCord(unsigned int x, unsigned int y) /** This method will define the post's coordinates on the maze, according the @param x and @param y. **/
+void Post::setCord(int x, int y) /** This method will define the post's coordinates on the maze, according the @param x and @param y. **/
 {
     this -> x = x;
     this -> y = y;
@@ -20,9 +20,9 @@ void Post::set_Status(char status) /** This method will define the post's status
     this -> status = status;
 }
 
-vector <unsigned int> Post::getCord() const /** This method returns the current coordinates @param x and @param y of the post, by returning a vector @param cord. **/
+vector <int> Post::getCord() const /** This method returns the current coordinates @param x and @param y of the post, by returning a vector @param cord. **/
 {
-    vector <unsigned int> cord = {};
+    vector <int> cord = {};
     cord.push_back(x);
     cord.push_back(y);
     return cord;

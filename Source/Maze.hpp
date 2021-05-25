@@ -11,18 +11,18 @@ class Maze // This class Maze will ensure the creation of all elements of the ma
     public:
     Maze();
     string getName() const;
-    void setDimension(unsigned int lines, unsigned int cols);
+    void setDimension(int lines, int cols);
     void setName(string name);
     void includePost(Post post);
     void includePortal(Portal portal);
-    vector<unsigned int> getDimensions() const;
+    vector<int> getDimensions() const;
     vector<Post> getPosts() const;
     vector<Portal> getPortals() const;
     void changePost(int x, int y);
 
     private:
-    unsigned int lines;
-    unsigned int cols;
+    int lines;
+    int cols;
     string name;
     vector<Post> posts;
     vector<Portal> portals;
