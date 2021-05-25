@@ -23,11 +23,6 @@ void Robot::setStatus(char status) /** This method will define the robot's statu
     this -> status = status;
 }
 
-void Robot::setID(unsigned int id) /** This method will define the robot's ID, according to @param id that will determine which robot will move first after the move of the player during the game. **/
-{
-    this -> id = id;
-}
-
 void Robot::changeStatus(char s) /** This method chnages the robot's status to 'r'. This method will be called when the robot collide with a live/stuck robot or an (non-) electrified fence. **/
 {
     status = s;

@@ -43,7 +43,6 @@ void Game::createObjects(int number_maze) /** This method creates the various el
         maze.setDimension(lines, cols);
 
         int i = 0;
-        int cont_robot = 1;
         while (!file.eof())
         {    
             getline(file, current_line);
@@ -55,8 +54,6 @@ void Game::createObjects(int number_maze) /** This method creates the various el
                     Robot robot = Robot();
                     robot.setCord(i, j);
                     robot.setStatus(current_char);
-                    robot.setID(cont_robot);
-                    cont_robot++;
                     robots.push_back(robot);
                 }
 
