@@ -13,7 +13,7 @@ ADDITIONAL SPECIFICATIONS:
 
 -Robot collisions with fences: If a live robot collides with an electrified fence, it becomes a stuck robot and remains in its current position and also the fence changes its status (that is, it becomes a non-electrified post);
 
--Exit gates: Since it was easier to determine the win situation, in case the player has escaped trough an exit gate, we have decided to create a new class named as "Portal", which attributes are the coordinates and the status of the portal. It also makes that all the elements of the maze are objects of type Class;
+-Exit gates: Since it was easier to determine the win situation, in case the player has escaped trough an exit gate, we have decided to create a new class named as "Portal", which attributes are the coordinates of the portal. It also makes that all the elements of the maze are objects of type Class;
 
 -Records: We have devided to insert the name of the winner in case it does not exist in the Record's file of the corresponding maze or it exists but the player has completed the maze in a better time, which means it has a new record associated to that name. If the time spent by the user to complete the name is higher than the time on the file, nothing is modified on the Record's file; however, the user is informed that a better time already exists;
 
