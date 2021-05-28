@@ -17,7 +17,7 @@ ADDITIONAL SPECIFICATIONS:
 
 -Records: We have devided to insert the name of the winner in case it does not exist in the Record's file of the corresponding maze or it exists but the player has completed the maze in a better time, which means it has a new record associated to that name. If the time spent by the user to complete the name is higher than the time on the file, nothing is modified on the Record's file; however, the user is informed that a better time already exists;
 
--Rewrite the Record's file: we have decided to use sets (set <int,string> records) in order to allocate temporarily the winners list to be rewritten, so that it could automatically remove the repeated winners lines; those lines are sorted by ascending order of the times spent to complete the maze, and are sorted lexicographically in case two or more winner have the same time. This also results in a better efficiency on file's load and store of .txt files to the STL conatiner;
+-Rewrite the Record's file: we have decided to use sets (set <int,string> records) in order to allocate temporarily the winners list to be rewritten, so that it could automatically remove the repeated winners lines; those lines are sorted by ascending order of the times spent to complete the maze, and are sorted lexicographically in case two or more winner have the same time. This also results in a better efficiency on file's load and store of .txt files to the STL container;
 
 
 PROGRAM DEVELOPMENT STATE:
