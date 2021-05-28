@@ -92,12 +92,13 @@ void Game::createObjects(int number_maze) /** This method creates the various el
 
 bool Game::end() const /** This method verifies if the has already ended, by checking if all the robots are destroyed (that is, each robot's status is represented by an 'r'); it checks if the player is alive, thanks to the isAlive() function or if the players has won the game. **/
 {
-    bool all_dead = true;
-    for (auto robot : robots)
-    {
-        all_dead = all_dead && robot.getStatus() == 'r';
-    }
-    return all_dead || !isAlive() || player.Win();
+    // bool all_dead = true;
+    // for (auto robot : robots)
+    // {
+    //     all_dead = all_dead && robot.getStatus() == 'r';
+    // }´
+    // all_dead || 
+    return !isAlive() || player.Win();
 }
 
 bool Game::valid_button(char command) const /** This method verifies if the user has inputed a valid button, that is, if the character typed by him/her corresponds to one of the characters in @param allowed_commands. **/
@@ -330,6 +331,11 @@ void Game::robot_moves() /** This method assures the movement of the robots, acc
             {
                 robot.changeCord(new_x,new_y);            
             }
+            else if (nextChar(new_x, new_y) == 'R')
+            {
+                robot.changeCord(new_x,new_y);
+                robot.changeStatus('r');
+            }       
             else if (nextChar(new_x, new_y) == '*') 
             {
                 robot.changeStatus('r');
@@ -347,7 +353,7 @@ void Game::robot_moves() /** This method assures the movement of the robots, acc
             else if (nextChar(new_x, new_y) == 'O')
             {
                 robot.changeCord(new_x,new_y);
-            }
+            }     
             else
             {
                 robot.changeCord(new_x,new_y);
