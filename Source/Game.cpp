@@ -123,7 +123,13 @@ char Game::nextChar(int x, int y) const /** This method returns the status/chara
     vector<Post> posts = maze.getPosts();
     for (auto robot : robots)
     {
-        if (robot.getCord()[0] == x && robot.getCord()[1] == y)
+        if (robot.getCord()[0] == x && robot.getCord()[1] == y && robot.getStatus() == 'r')
+            return robot.getStatus();
+    }
+    
+    for (auto robot : robots)
+    {
+        if (robot.getCord()[0] == x && robot.getCord()[1] == y && robot.getStatus() == 'R')
             return robot.getStatus();
     }
 
@@ -360,7 +366,7 @@ void Game::robot_moves() /** This method assures the movement of the robots, acc
                 robot.changeStatus('r');
             }
         }
-        if (nextChar(robot.getCord()[0], robot.getCord()[1]) == 'r')
+        else if (nextChar(robot.getCord()[0], robot.getCord()[1]) == 'r')
         {
             robot.changeStatus('r');          
         }
