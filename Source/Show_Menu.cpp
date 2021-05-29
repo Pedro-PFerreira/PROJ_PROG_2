@@ -57,9 +57,10 @@ void Menu(bool &want_play, int &number_maze) /** This function secures the funct
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     if (button == 1)
-    {
+    {   string aux;
         ShowRules();
         cout << "Press any button to go back to main menu." << endl;
+        cin >> aux;
         if (cin.eof())
         {
             exit(0);
@@ -79,9 +80,10 @@ void Menu(bool &want_play, int &number_maze) /** This function secures the funct
         exit(0);
 
     else if (button == 3)
-    {
+    {   string temp;
         Show_winners();
         cout << "Press any button to go back to main menu." << endl;
+        cin >> temp;
         if (cin.eof())
         {
             exit(0);

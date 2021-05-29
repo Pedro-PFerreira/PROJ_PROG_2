@@ -32,7 +32,7 @@ PROGRAM DEVELOPMENT STATE:
 
 - Development of simple program interfaces: This objective was completed because we displayed on the screen a menu which indicates the possible commands executable (show the rules, choose a maze to play, the winners and exit), asking the user to type the respective number of each command; while playing, the maze is displayed on the screen and asks the user to select a button in order to move on the maze in each play, by using cin and cout; if he/she wins, the user is asked to input its name, in order to display it on the records file, with a getline command;
 
-- Using of flags: Comparing to the previous project, we use "flags" (boolean variable that change its value according to certain situations) to prevent form the usage of the recursion: for example, if the user selects a valid maze, the flag want_play, which value is initially false, becomes true, and it allows to start the game it self;
+- Using of flags: Comparing to the previous project, we use "flags" (boolean variable that change its value according to certain situations) to avoid the usage of the recursion: for example, if the user selects a valid maze, the flag want_play, which value is initially false, becomes true, and it allows to start the game it self;
 
 - Play again: Thanks to the using of the flags, we modified the program so that the user could play again without finishing the program's execution- at the end of the game, the user is asked if he/she wants to play again and according to the character inputed ('y'/'Y' if he/she wants to play again or 'n'/'N' in negative case) and the main menu is shown or not, in the respective cases;
 

@@ -1,7 +1,0 @@
-Player          - Time
-----------------------
-Luis Portela    - 11
-Ines Gaspar     - 14
-Afonso Abreu    - 19
-Joao Malva      - 23
-Gil Coutinho    - 31
