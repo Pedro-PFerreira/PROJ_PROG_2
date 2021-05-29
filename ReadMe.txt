@@ -9,7 +9,7 @@ GROUP MEMBERS:
 
 ADDITIONAL SPECIFICATIONS:
 
--Showing the winners: We have decided that the program will show all the winners of every maze (if the maze has at least a winner), and the time spent by each on as well;
+-Showing the winners: We have decided that the program will show all the winners of every maze (if the maze has at least a winner), and the time spent by each one as well;
 
 -Robot collisions with fences: If a live robot collides with an electrified fence, it becomes a stuck robot and remains in its current position and also the fence changes its status (that is, it becomes a non-electrified post);
 

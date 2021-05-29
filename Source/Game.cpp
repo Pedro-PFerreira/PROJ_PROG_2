@@ -92,12 +92,6 @@ void Game::createObjects(int number_maze) /** This method creates the various el
 
 bool Game::end() const /** This method verifies if the has already ended, by checking if all the robots are destroyed (that is, each robot's status is represented by an 'r'); it checks if the player is alive, thanks to the isAlive() function or if the players has won the game. **/
 {
-    // bool all_dead = true;
-    // for (auto robot : robots)
-    // {
-    //     all_dead = all_dead && robot.getStatus() == 'r';
-    // }´
-    // all_dead || 
     return !isAlive() || player.Win();
 }
 
