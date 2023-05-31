@@ -2,8 +2,8 @@
 
 ## Group Members:
 
-- Fábio Araújo de Sá (up202007658)
-- Pedro Pereira Ferreira (up202004986)
+- [Fábio Araújo de Sá](https://github.com/Fabio-A-Sa) (up202007658)
+- [Pedro Pereira Ferreira](https://github.com/Pedro-PFerreira/) (up202004986)
 
 ## Additional Specifications:
 
